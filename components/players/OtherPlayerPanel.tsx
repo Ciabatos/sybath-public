@@ -1,0 +1,135 @@
+"use client"
+import { OtherPlayerAbilities } from "@/components/attributes/OtherPlayerAbilities"
+import { OtherPlayerSkills } from "@/components/attributes/OtherPlayerSkills"
+import OtherPlayerStats from "@/components/attributes/OtherPlayerStats"
+import { OtherPlayerCombinedInventory } from "@/components/inventory/OtherPlayerCombinedInventory"
+import OpenTrade from "@/components/trade/OpenTrade"
+import { Button } from "@/components/ui/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { createImage } from "@/methods/functions/util/createImage"
+import { useOtherPlayerKnowledgeControls } from "@/methods/hooks/knowledge/composite/useOtherPlayerKnowledgeControls"
+import { useModalRightCenter } from "@/methods/hooks/modals/useModalRightCenter"
+import { useOtherPlayerId } from "@/methods/hooks/players/composite/useOtherPlayerId"
+import { useOtherPlayerProfile } from "@/methods/hooks/players/composite/useOtherPlayerProfile"
+import { useSquadControls } from "@/methods/hooks/squad/composite/useSquadControls"
+import { Avatar, AvatarImage } from "@radix-ui/react-avatar"
+import { X } from "lucide-react"
+import styles from "./styles/OtherPlayerPanel.module.css"
+
+export default function OtherPlayerPanel() {
+  const { resetModalRightCenter } = useModalRightCenter()
+  const { createPlayerPortrait } = createImage()
+  const { otherPlayerProfile } = useOtherPlayerProfile()
+  const otherPLayerId = useOtherPlayerId()
+  const { inviteToSquad } = useSquadControls()
+  const { inviteToKnownProfile } = useOtherPlayerKnowledgeControls()
+
+  function onClose() {
+    resetModalRightCenter()
+  }
+
+  const name = otherPlayerProfile?.name ? otherPlayerProfile?.name : otherPLayerId
+  const secondName = otherPlayerProfile?.secondName
+  const nickname = otherPlayerProfile?.nickname
+
+  const avatarUrl =
+    otherPlayerProfile?.imagePortrait && otherPlayerProfile?.imagePortrait.trim() !== ""
+      ? createPlayerPortrait(otherPlayerProfile?.imagePortrait)
+      : createPlayerPortrait("masked.png")
+
+  return (
+    <div className={styles.panelsContainer}>
+      <div className={styles.panel}>
+        <Button
+          onClick={onClose}
+          variant='ghost'
+          size='icon'
+          className={styles.closeButton}
+        >
+          <X className={styles.closeButtonIcon} />
+        </Button>
+
+        <div className={styles.header}>
+          <Avatar className={styles.avatar}>
+            <AvatarImage
+              src={avatarUrl}
+              alt='Hero'
+              className={styles.avatarImage}
+            />
+          </Avatar>
+          <div className={styles.headerInfo}>
+            <h2 className={styles.heroName}>
+              {name} {secondName}
+            </h2>
+            <p className={styles.heroTitle}>Inni głosują za nickiem lub nazywają{nickname}</p>
+          </div>
+        </div>
+        <OpenTrade />
+        <Button onClick={() => inviteToSquad(1, 2)}>Invite to Squad</Button>
+        <Button onClick={() => inviteToSquad(2, 2)}>Invite to Squad Permanent</Button>
+        <Button onClick={() => inviteToKnownProfile()}>Knowledge request profile</Button>
+        <div className={styles.mainContent}>
+          <Tabs
+            defaultValue='Stats'
+            className={styles.tabs}
+          >
+            <TabsList className={styles.tabsList}>
+              <TabsTrigger
+                value='Stats'
+                className={styles.tabsTrigger}
+              >
+                Stats
+              </TabsTrigger>
+              <TabsTrigger
+                value='Inventory'
+                className={styles.tabsTrigger}
+              >
+                Inventory
+              </TabsTrigger>
+              <TabsTrigger
+                value='Skills'
+                className={styles.tabsTrigger}
+              >
+                Skills
+              </TabsTrigger>
+              <TabsTrigger
+                value='Abilities'
+                className={styles.tabsTrigger}
+              >
+                Abilities
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent
+              value='Stats'
+              className={styles.tabsContent}
+            >
+              <OtherPlayerStats />
+            </TabsContent>
+
+            <TabsContent
+              value='Inventory'
+              className={styles.tabsContentInventory}
+            >
+              <OtherPlayerCombinedInventory />
+            </TabsContent>
+
+            <TabsContent
+              value='Skills'
+              className={styles.tabsContent}
+            >
+              <OtherPlayerSkills />
+            </TabsContent>
+
+            <TabsContent
+              value='Abilities'
+              className={styles.tabsContent}
+            >
+              <OtherPlayerAbilities />
+            </TabsContent>
+          </Tabs>
+        </div>
+      </div>
+    </div>
+  )
+}

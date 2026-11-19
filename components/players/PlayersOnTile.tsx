@@ -1,0 +1,67 @@
+"use client"
+import PlayerPortrait from "@/components/players/PlayerPortrait"
+import SquadPortrait from "@/components/squad/SquadPortrait"
+import { Button } from "@/components/ui/button"
+import { useModalBottomLeft } from "@/methods/hooks/modals/useModalBottomLeft"
+import { useModalRightCenter } from "@/methods/hooks/modals/useModalRightCenter"
+import { useSetOtherPlayerId } from "@/methods/hooks/players/composite/useOtherPlayerId"
+import { useMapTileActions } from "@/methods/hooks/world/composite/useMapTileActions"
+import usePlayersOnTile from "@/methods/hooks/world/composite/usePlayersOnTile"
+import { EPanelsRightCenter } from "@/types/enumeration/EPanelsRightCenter"
+import { X } from "lucide-react"
+import styles from "./styles/PlayersOnTile.module.css"
+
+export default function PlayersOnTile() {
+  const { resetModalBottomLeft } = useModalBottomLeft()
+  const { openModalRightCenter } = useModalRightCenter()
+  const setOtherPlayerId = useSetOtherPlayerId()
+
+  const { clickedMapTile } = useMapTileActions()
+
+  const { playersOnTile } = usePlayersOnTile(clickedMapTile?.mapTiles.x ?? 0, clickedMapTile?.mapTiles.y ?? 0)
+  if (!playersOnTile) return null
+
+  function handleClickPlayerPortrait(otherPlayerId: string) {
+    setOtherPlayerId(otherPlayerId)
+    openModalRightCenter(EPanelsRightCenter.OtherPlayerPanel)
+  }
+
+  const onClose = () => {
+    resetModalBottomLeft()
+  }
+
+  return (
+    <>
+      <div className={styles.panel}>
+        <div>Lista Playerów</div>
+        <Button
+          onClick={onClose}
+          variant='ghost'
+          size='icon'
+          className={styles.closeButton}
+        >
+          <X className={styles.closeIcon} />
+        </Button>
+        {Object.entries(playersOnTile).map(([key, otherPlayer]) => (
+          <div key={key}>
+            {otherPlayer.name
+              ? otherPlayer.name +
+                (otherPlayer.nickname ? ` (${otherPlayer.nickname})` : "") +
+                " " +
+                otherPlayer.secondName
+              : otherPlayer.otherPlayerId}
+            <Button
+              onClick={() => handleClickPlayerPortrait(otherPlayer.otherPlayerId)}
+              className={styles.heroButton}
+            >
+              <PlayerPortrait imagePortrait={otherPlayer.imagePortrait} />
+            </Button>
+            <Button className={styles.heroButton}>
+              <SquadPortrait squadImagePortrait={otherPlayer.squadImagePortrait} />
+            </Button>
+          </div>
+        ))}
+      </div>
+    </>
+  )
+}

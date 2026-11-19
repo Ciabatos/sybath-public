@@ -1,0 +1,368 @@
+/* ── THEME COLORS ─────────────────────────────────────────────────────────── */
+:root {
+  --primary: #8b4513;
+  --secondary: #daa520;
+  --accent: #c0c0c0;
+  --danger: #8b0000;
+  --background: #1a1a2e;
+  --panel: #2d2d44;
+  --border: #6b4423;
+}
+
+/* ── TYPOGRAPHY (assumed fonts) ───────────────────────────────────────────── */
+.title {
+  color: var(--secondary);
+  font-weight: bold;
+  font-family: "Press Start 2P", monospace;
+  letter-spacing: 2px;
+  text-shadow:
+    2px 2px 0px #000,
+    -1px -1px 0px rgba(0, 0, 0, 0.5),
+    1px -1px 0px rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+}
+
+.subTitle {
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-family: "VT323", monospace;
+  letter-spacing: 1px;
+}
+
+/* ── CONTAINER & LAYOUT ───────────────────────────────────────────────────── */
+.container {
+  position: relative;
+  border: 4px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--background);
+  padding: 24px;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 12px;
+}
+
+.title {
+  background: linear-gradient(180deg, #ffd700, #b8860b);
+  -webkit-background-clip: text;
+  font-size: 14px;
+  line-height: 1.8;
+  -webkit-text-fill-color: transparent;
+}
+
+.subTitle {
+  margin-top: 4px;
+  font-size: 1rem;
+}
+
+/* ── RARITY BADGE ─────────────────────────────────────────────────────────── */
+.rarityBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--secondary);
+  border-radius: 4px;
+  background-color: var(--panel);
+  padding: 6px 12px;
+}
+
+.rarityText {
+  color: var(--secondary);
+  font-size: 10px;
+  font-family: "Press Start 2P", monospace;
+  text-shadow: 0 0 8px var(--secondary);
+}
+
+/* ── SCROLL AREA & CONTENT ────────────────────────────────────────────────── */
+.scrollArea {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: calc(100% - 60px);
+}
+
+.content {
+  padding: 8px;
+}
+
+.section {
+  margin-bottom: 12px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  background-color: var(--panel);
+  padding: 12px;
+}
+
+.sectionTitle {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 10px;
+  font-family: "Press Start 2P", monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ── ITEM ICON & BASIC INFO ───────────────────────────────────────────────── */
+.itemIconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.itemIconPlaceholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid var(--secondary);
+  border-radius: 4px;
+  background-color: var(--background);
+  width: 80px;
+  height: 80px;
+  font-size: 2rem;
+}
+
+.itemIcon_weapon {
+  border-color: #c0c0c0;
+}
+
+.itemIcon_armor {
+  border-color: #8b4513;
+}
+
+.itemIcon_accessory {
+  border-color: #daa520;
+}
+
+.itemIcon_consumable {
+  border-color: #ef4444;
+}
+
+.itemIcon_artifact {
+  border-color: #a855f7;
+}
+
+.basicInfo {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.typeBadge {
+  border-radius: 3px;
+  background-color: var(--border);
+  padding: 4px 8px;
+  color: var(--accent);
+  font-size: 0.7rem;
+}
+
+.enchantLevel {
+  color: var(--secondary);
+  font-size: 9px;
+  font-family: "Press Start 2P", monospace;
+}
+
+/* ── DESCRIPTION ──────────────────────────────────────────────────────────── */
+.description {
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-family: "VT323", monospace;
+}
+
+/* ── STATS GRID ───────────────────────────────────────────────────────────── */
+.statsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.levelReq {
+  color: var(--danger);
+  font-size: 9px;
+  font-family: "Press Start 2P", monospace;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 6px 8px;
+}
+
+.statRow:hover {
+  transform: scale(1.02);
+  border: 1px solid var(--secondary);
+  background-color: rgba(218, 165, 32, 0.1);
+}
+
+.statRow.selected {
+  border: 2px solid var(--secondary);
+  background-color: rgba(245, 158, 11, 0.2);
+}
+
+.statIconContainer {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.statLabel {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  font-family: "VT323", monospace;
+}
+
+.statValue {
+  color: var(--accent);
+  font-size: 11px;
+  font-family: "Press Start 2P", monospace;
+  text-shadow: 0 0 6px rgba(192, 192, 192, 0.5);
+}
+
+.statRow.selected .statValue {
+  color: var(--secondary);
+  text-shadow: 0 0 8px var(--secondary);
+}
+
+/* ── ENCHANTMENT SECTION ─────────────────────────────────────────────────── */
+.enchantButton {
+  border-color: var(--border);
+  width: 100%;
+  color: var(--accent);
+  font-family: "VT323", monospace;
+}
+
+.enchantmentContainer {
+  margin-top: 8px;
+  border-left: 3px solid var(--secondary);
+  border-radius: 4px;
+  background-color: rgba(192, 192, 192, 0.05);
+  padding: 8px;
+}
+
+.enchantmentTitle {
+  margin-bottom: 8px;
+  color: var(--secondary);
+  font-size: 9px;
+  font-family: "Press Start 2P", monospace;
+}
+
+.enchantmentList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.enchantmentItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 4px 8px;
+}
+
+.enchantmentIcon {
+  font-size: 1rem;
+}
+
+.enchantmentName {
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-family: "VT323", monospace;
+}
+
+.enchantmentValue {
+  color: var(--secondary);
+  font-size: 8px;
+  font-family: "Press Start 2P", monospace;
+}
+
+/* ── ACTION BUTTONS ───────────────────────────────────────────────────────── */
+.actionButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.actionButton {
+  border-color: var(--border);
+  min-width: 100px;
+  color: var(--accent);
+  font-family: "VT323", monospace;
+}
+
+/* ── FOOTER INFO ──────────────────────────────────────────────────────────── */
+.footerInfo {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 8px;
+  font-size: 0.8rem;
+}
+
+.footerLabel {
+  color: var(--accent);
+}
+
+.footerValue {
+  color: #9ca3af;
+  font-family: "VT323", monospace;
+}
+
+/* ── HOVER EFFECTS ────────────────────────────────────────────────────────── */
+.hoverOverlay {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.rarityGlow {
+  color: var(--secondary);
+  font-size: 3rem;
+  text-shadow:
+    0 0 10px var(--secondary),
+    0 0 20px var(--secondary),
+    0 0 30px var(--secondary);
+}
+
+/* ── SEPARATOR (pixelated) ───────────────────────────────────────────────── */
+.Separator {
+  margin: 16px 0;
+  border: none;
+  background-color: var(--border);
+  height: 2px;
+}
+
+/* ── BUTTON STYLES (overrides for retro feel) ─────────────────────────────── */
+.Button {
+  border-radius: 4px !important;
+  font-family: "VT323", monospace !important;
+}
+
+.Badge {
+  font-size: 8px !important;
+  font-family: "Press Start 2P", monospace !important;
+}

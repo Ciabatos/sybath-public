@@ -1,0 +1,23 @@
+/* GENERATED CODE - DO NOT EDIT MANUALLY - snippetCreateModal.hbs */
+
+.modalOverlay {
+  z-index: 99;
+}
+
+.modalContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  animation: slideIn 0.3s ease-out;
+  overflow-y: auto;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

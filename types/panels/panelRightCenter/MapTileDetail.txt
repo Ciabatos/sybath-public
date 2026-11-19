@@ -1,0 +1,1 @@
+[EPanelsRightCenter.MapTileDetail]: dynamic(() => import("@/components/map/MapTileDetail")

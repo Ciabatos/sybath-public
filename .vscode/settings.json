@@ -1,0 +1,116 @@
+{
+  "workbench.colorTheme": "Dark+",
+  "workbench.editor.enablePreview": true,
+  "files.eol": "\r\n",
+  "prettier.configPath": ".prettierrc.json",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.renderWhitespace": "trailing",
+  "editor.useTabStops": false,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.codeLens": true,
+  "editor.insertSpaces": false,
+  "emmet.includeLanguages": {
+    "ejs": "html"
+  },
+
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascript",
+    "html": "HTML",
+    "plaintext": "javascript"
+  },
+
+  "files.associations": {
+    "*.ejs": "html",
+    "*.css": "tailwindcss"
+  },
+
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "css.validate": false,
+  "editor.inlineSuggest.enabled": true,
+  "tailwindCSS.emmetCompletions": true,
+
+  "editor.formatOnSave": true,
+  "explorer.autoReveal": true,
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.guides.bracketPairs": "active",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.openRepositoryInParentFolders": "always",
+  "terminal.integrated.env.windows": {},
+  "window.commandCenter": true,
+  "editor.minimap.enabled": false,
+  "importCost.typescriptExtensions": ["\\.tsx?$"],
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "js/ts.preferences.importModuleSpecifier": "non-relative",
+  "js/ts.preferences.autoImportFileExcludePatterns": ["react-day-picker", "@base-ui/react"],
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.sortOrder": "filesFirst",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+
+  "editor.codeActionsOnSave": {
+    // "source.organizeImports": true,
+    "source.addMissingImports.ts": "always",
+    "source.removeUnused": "never",
+    "source.removeUnusedImports": "always",
+    "source.sortImports": "always"
+  },
+  "eslint.notebooks.rules.customizations": [],
+  "eslint.rules.customizations": [],
+  "eslint.workingDirectories": [],
+  "eslint.nodeEnv": "",
+  "codeium.enableCodeLens": false,
+  "editor.largeFileOptimizations": false,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "github.copilot.chat.codesearch.enabled": true,
+  "auto-close-tag.activationOnLanguage": [
+    "xml",
+    "php",
+    "blade",
+    "ejs",
+    "jinja",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "plaintext",
+    "markdown",
+    "vue",
+    "liquid",
+    "erb",
+    "lang-cfml",
+    "cfml",
+    "HTML (EEx)",
+    "HTML (Eex)",
+    "plist"
+  ],
+  "folder-customization.folders": [
+    {
+      "path": "sybath\\methods\\services\\",
+      "badge": "💛"
+    },
+    {
+      "path": "sybath\\methods\\server-fetchers\\",
+      "badge": "💙"
+    },
+    {
+      "path": "sybath\\methods\\hooks\\",
+      "badge": "❤️"
+    }
+  ]
+}

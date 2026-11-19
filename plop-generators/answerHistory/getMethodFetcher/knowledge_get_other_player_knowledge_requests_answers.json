@@ -1,0 +1,135 @@
+{
+  "promptAnswers": {
+    "schema": "knowledge",
+    "method": "get_other_player_knowledge_requests",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "otherPlayerKnowledgeRequestId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "knowledge",
+  "method": "get_other_player_knowledge_requests",
+  "entityCamelName": "otherPlayerKnowledgeRequests",
+  "entityPascalName": "OtherPlayerKnowledgeRequests",
+  "entityKebabName": "get-other-player-knowledge-requests",
+  "dbFunctionName": "getOtherPlayerKnowledgeRequests",
+  "methodTypeName": "TOtherPlayerKnowledgeRequests",
+  "methodParamsTypeName": "TOtherPlayerKnowledgeRequestsParams",
+  "clientMethodParamsTypeName": "TOtherPlayerKnowledgeRequestsClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "other_player_knowledge_request_id",
+      "camelName": "otherPlayerKnowledgeRequestId",
+      "pascalName": "OtherPlayerKnowledgeRequestId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "other_player_id",
+      "camelName": "otherPlayerId",
+      "pascalName": "OtherPlayerId",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "second_name",
+      "camelName": "secondName",
+      "pascalName": "SecondName",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "nickname",
+      "camelName": "nickname",
+      "pascalName": "Nickname",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image_portrait",
+      "camelName": "imagePortrait",
+      "pascalName": "ImagePortrait",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "knowledge_type_id",
+      "camelName": "knowledgeTypeId",
+      "pascalName": "KnowledgeTypeId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "created_at",
+      "camelName": "createdAt",
+      "pascalName": "CreatedAt",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"otherPlayerKnowledgeRequestId\"]",
+  "indexParamsColumns": "userId, playerId",
+  "indexTypeMethodName": "OtherPlayerKnowledgeRequestId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TOtherPlayerKnowledgeRequestsRecordByOtherPlayerKnowledgeRequestId",
+  "indexColumns": [
+    {
+      "name": "other_player_knowledge_request_id",
+      "camelName": "otherPlayerKnowledgeRequestId",
+      "pascalName": "OtherPlayerKnowledgeRequestId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_other_player_knowledge_requests",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/knowledge/rpc/get-other-player-knowledge-requests/[playerId]/route.ts",
+  "apiPathParams": "/api/knowledge/rpc/get-other-player-knowledge-requests/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:23.873Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/knowledge/otherPlayerKnowledgeRequests.ts",
+    "app/api/knowledge/rpc/get-other-player-knowledge-requests/[playerId]/route.ts",
+    "methods/hooks/knowledge/core/useFetchOtherPlayerKnowledgeRequests.ts",
+    "methods/server-fetchers/knowledge/core/getOtherPlayerKnowledgeRequestsServer.ts",
+    "methods/services/knowledge/fetchOtherPlayerKnowledgeRequestsService.ts",
+    "store/atoms/getMethodFetcher/otherPlayerKnowledgeRequestsAtom.ts",
+    ".vscode/useOtherPlayerKnowledgeRequests.code-snippets",
+    "methods/hooks/knowledge/core/useMutateOtherPlayerKnowledgeRequests.ts",
+    "methods/hooks/knowledge/core/useFetchOtherPlayerKnowledgeRequests.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

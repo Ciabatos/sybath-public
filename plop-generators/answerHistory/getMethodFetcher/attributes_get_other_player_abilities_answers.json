@@ -1,0 +1,112 @@
+{
+  "promptAnswers": {
+    "schema": "attributes",
+    "method": "get_other_player_abilities",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "abilityId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "attributes",
+  "method": "get_other_player_abilities",
+  "entityCamelName": "otherPlayerAbilities",
+  "entityPascalName": "OtherPlayerAbilities",
+  "entityKebabName": "get-other-player-abilities",
+  "dbFunctionName": "getOtherPlayerAbilities",
+  "methodTypeName": "TOtherPlayerAbilities",
+  "methodParamsTypeName": "TOtherPlayerAbilitiesParams",
+  "clientMethodParamsTypeName": "TOtherPlayerAbilitiesClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_other_player_id",
+      "camelName": "otherPlayerId",
+      "tsType": "string",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_other_player_id",
+      "camelName": "otherPlayerId",
+      "tsType": "string",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "ability_id",
+      "camelName": "abilityId",
+      "pascalName": "AbilityId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "value",
+      "camelName": "value",
+      "pascalName": "Value",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"abilityId\"]",
+  "indexParamsColumns": "userId, playerId, otherPlayerId",
+  "indexTypeMethodName": "AbilityId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TOtherPlayerAbilitiesRecordByAbilityId",
+  "indexColumns": [
+    {
+      "name": "ability_id",
+      "camelName": "abilityId",
+      "pascalName": "AbilityId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_other_player_abilities",
+  "sqlParamsPlaceholders": "$1, $2, $3",
+  "apiPath": "app/api/attributes/rpc/get-other-player-abilities/[playerId]/[otherPlayerId]/route.ts",
+  "apiPathParams": "/api/attributes/rpc/get-other-player-abilities/${params.playerId}/${params.otherPlayerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:22.139Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/attributes/otherPlayerAbilities.ts",
+    "app/api/attributes/rpc/get-other-player-abilities/[playerId]/[otherPlayerId]/route.ts",
+    "methods/hooks/attributes/core/useFetchOtherPlayerAbilities.ts",
+    "methods/server-fetchers/attributes/core/getOtherPlayerAbilitiesServer.ts",
+    "methods/services/attributes/fetchOtherPlayerAbilitiesService.ts",
+    "store/atoms/getMethodFetcher/otherPlayerAbilitiesAtom.ts",
+    ".vscode/useOtherPlayerAbilities.code-snippets",
+    "methods/hooks/attributes/core/useMutateOtherPlayerAbilities.ts",
+    "methods/hooks/attributes/core/useFetchOtherPlayerAbilities.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

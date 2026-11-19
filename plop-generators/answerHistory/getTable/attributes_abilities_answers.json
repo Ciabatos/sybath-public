@@ -1,0 +1,106 @@
+{
+  "promptAnswers": {
+    "schema": "attributes",
+    "table": "abilities",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "id"
+    ],
+    "paramsColumns": [
+      "id"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "attributes",
+  "table": "abilities",
+  "tableCamelName": "abilities",
+  "tablePascalName": "Abilities",
+  "tableKebabName": "abilities",
+  "schemaTablePascalName": "AttributesAbilities",
+  "methodTypeName": "TAttributesAbilities",
+  "methodParamsTypeName": "TAttributesAbilitiesParams",
+  "methodParamsColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number"
+    }
+  ],
+  "methodName": "getAttributesAbilities",
+  "methodNameByKey": "getAttributesAbilitiesByKey",
+  "methodRecords": "get_abilities",
+  "methodRecordsByKey": "get_abilities_by_key",
+  "sqlParamsPlaceholders": "$1",
+  "methodColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "Id"
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "description",
+      "camelName": "description",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image",
+      "camelName": "image",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"id\"]",
+  "indexParamsColumns": "id",
+  "indexTypeMethodName": "Id",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TAttributesAbilitiesRecordById",
+  "indexColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "Id"
+    }
+  ],
+  "apiPath": "app/api/attributes/abilities/route.ts",
+  "apiPathParams": "/api/attributes/abilities",
+  "apiPathByKey": "app/api/attributes/abilities/[id]/route.ts",
+  "apiPathParamsByKey": "/api/attributes/abilities/${params.id}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "fetcherName": "fetchAttributesAbilities",
+  "fetcherNameByKey": "fetchAttributesAbilitiesByKey",
+  "filesCreated": [
+    "../db/postgresMainDatabase/schemas/attributes/abilities.ts",
+    "../app/api/attributes/abilities/route.ts",
+    "../app/api/attributes/abilities/[id]/route.ts",
+    "../methods/hooks/attributes/core/useFetchAttributesAbilities.ts",
+    "../methods/hooks/attributes/core/useFetchAttributesAbilitiesByKey.ts",
+    "../methods/server-fetchers/attributes/core/getAttributesAbilitiesServer.ts",
+    "../methods/server-fetchers/attributes/core/getAttributesAbilitiesByKeyServer.ts",
+    "../methods/services/attributes/fetchAttributesAbilitiesService.ts",
+    "../methods/services/attributes/fetchAttributesAbilitiesByKeyService.ts",
+    "../store/atoms/getTable/abilitiesAtom.ts",
+    "../.vscode/useAttributesAbilities.code-snippets",
+    "../.vscode/useAttributesAbilitiesByKey.code-snippets",
+    "../methods/hooks/attributes/core/useMutateAttributesAbilities.ts",
+    "../methods/hooks/attributes/core/useMutateAttributesAbilitiesByKey.ts",
+    "./answerHistory/getTable/attributes_abilities_answers.json",
+    "../methods/hooks/attributes/core/useFetchAttributesAbilities.md",
+    "../methods/hooks/attributes/core/useFetchAttributesAbilitiesByKey.md"
+  ],
+  "selectedGenerators": [
+    "getTable"
+  ]
+}

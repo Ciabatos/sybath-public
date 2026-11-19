@@ -1,0 +1,171 @@
+{
+  "promptAnswers": {
+    "schema": "world",
+    "method": "get_players_on_tile",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "otherPlayerId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "world",
+  "method": "get_players_on_tile",
+  "entityCamelName": "playersOnTile",
+  "entityPascalName": "PlayersOnTile",
+  "entityKebabName": "get-players-on-tile",
+  "dbFunctionName": "getPlayersOnTile",
+  "methodTypeName": "TPlayersOnTile",
+  "methodParamsTypeName": "TPlayersOnTileParams",
+  "clientMethodParamsTypeName": "TPlayersOnTileClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_map_id",
+      "camelName": "mapId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_map_tile_x",
+      "camelName": "mapTileX",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_map_tile_y",
+      "camelName": "mapTileY",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_map_id",
+      "camelName": "mapId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_map_tile_x",
+      "camelName": "mapTileX",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_map_tile_y",
+      "camelName": "mapTileY",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "other_player_id",
+      "camelName": "otherPlayerId",
+      "pascalName": "OtherPlayerId",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "second_name",
+      "camelName": "secondName",
+      "pascalName": "SecondName",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "nickname",
+      "camelName": "nickname",
+      "pascalName": "Nickname",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image_portrait",
+      "camelName": "imagePortrait",
+      "pascalName": "ImagePortrait",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "squad_id",
+      "camelName": "squadId",
+      "pascalName": "SquadId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "squad_name",
+      "camelName": "squadName",
+      "pascalName": "SquadName",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "squad_image_portrait",
+      "camelName": "squadImagePortrait",
+      "pascalName": "SquadImagePortrait",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"otherPlayerId\"]",
+  "indexParamsColumns": "userId, mapId, mapTileX, mapTileY, playerId",
+  "indexTypeMethodName": "OtherPlayerId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TPlayersOnTileRecordByOtherPlayerId",
+  "indexColumns": [
+    {
+      "name": "other_player_id",
+      "camelName": "otherPlayerId",
+      "pascalName": "OtherPlayerId",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_players_on_tile",
+  "sqlParamsPlaceholders": "$1, $2, $3, $4, $5",
+  "apiPath": "app/api/world/rpc/get-players-on-tile/[mapId]/[mapTileX]/[mapTileY]/[playerId]/route.ts",
+  "apiPathParams": "/api/world/rpc/get-players-on-tile/${params.mapId}/${params.mapTileX}/${params.mapTileY}/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:25.684Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/world/playersOnTile.ts",
+    "app/api/world/rpc/get-players-on-tile/[mapId]/[mapTileX]/[mapTileY]/[playerId]/route.ts",
+    "methods/hooks/world/core/useFetchPlayersOnTile.ts",
+    "methods/server-fetchers/world/core/getPlayersOnTileServer.ts",
+    "methods/services/world/fetchPlayersOnTileService.ts",
+    "store/atoms/getMethodFetcher/playersOnTileAtom.ts",
+    ".vscode/usePlayersOnTile.code-snippets",
+    "methods/hooks/world/core/useMutatePlayersOnTile.ts",
+    "methods/hooks/world/core/useFetchPlayersOnTile.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

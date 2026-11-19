@@ -1,0 +1,1 @@
+[EPanelsTopCenter.SquadControls]: dynamic(() => import("@/components/squad/SquadControls")

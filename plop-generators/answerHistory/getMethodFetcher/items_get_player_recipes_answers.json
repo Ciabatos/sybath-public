@@ -1,0 +1,128 @@
+{
+  "promptAnswers": {
+    "schema": "items",
+    "method": "get_player_recipes",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "itemId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "items",
+  "method": "get_player_recipes",
+  "entityCamelName": "playerRecipes",
+  "entityPascalName": "PlayerRecipes",
+  "entityKebabName": "get-player-recipes",
+  "dbFunctionName": "getPlayerRecipes",
+  "methodTypeName": "TPlayerRecipes",
+  "methodParamsTypeName": "TPlayerRecipesParams",
+  "clientMethodParamsTypeName": "TPlayerRecipesClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "pascalName": "Id",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "item_id",
+      "camelName": "itemId",
+      "pascalName": "ItemId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "description",
+      "camelName": "description",
+      "pascalName": "Description",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image",
+      "camelName": "image",
+      "pascalName": "Image",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "skill_id",
+      "camelName": "skillId",
+      "pascalName": "SkillId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "value",
+      "camelName": "value",
+      "pascalName": "Value",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "can_craft",
+      "camelName": "canCraft",
+      "pascalName": "CanCraft",
+      "tsType": "boolean",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"itemId\"]",
+  "indexParamsColumns": "userId, playerId",
+  "indexTypeMethodName": "ItemId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TPlayerRecipesRecordByItemId",
+  "indexColumns": [
+    {
+      "name": "item_id",
+      "camelName": "itemId",
+      "pascalName": "ItemId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_player_recipes",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/items/rpc/get-player-recipes/[playerId]/route.ts",
+  "apiPathParams": "/api/items/rpc/get-player-recipes/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:23.692Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/items/playerRecipes.ts",
+    "app/api/items/rpc/get-player-recipes/[playerId]/route.ts",
+    "methods/hooks/items/core/useFetchPlayerRecipes.ts",
+    "methods/server-fetchers/items/core/getPlayerRecipesServer.ts",
+    "methods/services/items/fetchPlayerRecipesService.ts",
+    "store/atoms/getMethodFetcher/playerRecipesAtom.ts",
+    ".vscode/usePlayerRecipes.code-snippets",
+    "methods/hooks/items/core/useMutatePlayerRecipes.ts",
+    "methods/hooks/items/core/useFetchPlayerRecipes.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

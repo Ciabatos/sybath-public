@@ -1,0 +1,178 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Medieval dark wood and golden theme */
+  --background: #1a0f08;
+  --foreground: #e6c998;
+  --card: #2b1810;
+  --card-foreground: #e6c998;
+  --popover: #3d2415;
+  --popover-foreground: #e6c998;
+  --primary: #c89a4a;
+  --primary-foreground: #2b1810;
+  --secondary: #5c3a28;
+  --secondary-foreground: #e6c998;
+  --muted: #3d2415;
+  --muted-foreground: #a08560;
+  --accent: #d4a574;
+  --accent-foreground: #2b1810;
+  --destructive: #8b2e24;
+  --destructive-foreground: #e6c998;
+  --border: #5c3a28;
+  --input: #3d2415;
+  --ring: #c89a4a;
+  --chart-1: #c89a4a;
+  --chart-2: #d4a574;
+  --chart-3: #8b6f47;
+  --chart-4: #5c3a28;
+  --chart-5: #3d2415;
+  --radius: 0.625rem;
+  --sidebar: #2b1810;
+  --sidebar-foreground: #e6c998;
+  --sidebar-primary: #c89a4a;
+  --sidebar-primary-foreground: #2b1810;
+  --sidebar-accent: #d4a574;
+  --sidebar-accent-foreground: #2b1810;
+  --sidebar-border: #5c3a28;
+  --sidebar-ring: #c89a4a;
+}
+
+.dark {
+  --background: #0d0705;
+  --foreground: #f5e6d3;
+  --card: #1f1209;
+  --card-foreground: #f5e6d3;
+  --popover: #2b1810;
+  --popover-foreground: #f5e6d3;
+  --primary: #d4a574;
+  --primary-foreground: #1a0f08;
+  --secondary: #4a2f1f;
+  --secondary-foreground: #f5e6d3;
+  --muted: #2b1810;
+  --muted-foreground: #8b7355;
+  --accent: #e6b85c;
+  --accent-foreground: #1a0f08;
+  --destructive: #a23830;
+  --destructive-foreground: #f5e6d3;
+  --border: #4a2f1f;
+  --input: #2b1810;
+  --ring: #d4a574;
+  --chart-1: #d4a574;
+  --chart-2: #e6b85c;
+  --chart-3: #9a7a57;
+  --chart-4: #4a2f1f;
+  --chart-5: #2b1810;
+  --sidebar: #1f1209;
+  --sidebar-foreground: #f5e6d3;
+  --sidebar-primary: #d4a574;
+  --sidebar-primary-foreground: #1a0f08;
+  --sidebar-accent: #e6b85c;
+  --sidebar-accent-foreground: #1a0f08;
+  --sidebar-border: #4a2f1f;
+  --sidebar-ring: #d4a574;
+}
+
+@theme inline {
+  /* optional: --font-sans, --font-serif, --font-mono if they are applied in the layout.tsx */
+  --font-sans: var(--font-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Medieval wood texture pattern */
+.wood-texture {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(92, 58, 40, 0.3) 0%, rgba(61, 36, 21, 0.3) 100%);
+  background-size:
+    100px 100px,
+    100px 100px,
+    100%;
+}
+
+/* Medieval button emboss effect */
+.medieval-emboss {
+  box-shadow:
+    inset 0 2px 4px rgba(255, 255, 255, 0.1),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Adding custom medieval scrollbar styles */
+* {
+  scrollbar-color: #8b6d3a #2b1810;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  border: 1px solid #5a4022;
+  border-radius: 4px;
+  background: #2b1810;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 1px solid #5a4022;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #c89a4a 0%, #8b6d3a 100%);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 6px rgba(200, 154, 74, 0.5);
+  background: linear-gradient(180deg, #d4a574 0%, #9a7a57 100%);
+}
+
+*::-webkit-scrollbar-corner {
+  background: #2b1810;
+}

@@ -1,0 +1,106 @@
+{
+  "promptAnswers": {
+    "schema": "attributes",
+    "table": "skills",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "id"
+    ],
+    "paramsColumns": [
+      "id"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "attributes",
+  "table": "skills",
+  "tableCamelName": "skills",
+  "tablePascalName": "Skills",
+  "tableKebabName": "skills",
+  "schemaTablePascalName": "AttributesSkills",
+  "methodTypeName": "TAttributesSkills",
+  "methodParamsTypeName": "TAttributesSkillsParams",
+  "methodParamsColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number"
+    }
+  ],
+  "methodName": "getAttributesSkills",
+  "methodNameByKey": "getAttributesSkillsByKey",
+  "methodRecords": "get_skills",
+  "methodRecordsByKey": "get_skills_by_key",
+  "sqlParamsPlaceholders": "$1",
+  "methodColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "Id"
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "description",
+      "camelName": "description",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image",
+      "camelName": "image",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"id\"]",
+  "indexParamsColumns": "id",
+  "indexTypeMethodName": "Id",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TAttributesSkillsRecordById",
+  "indexColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "Id"
+    }
+  ],
+  "apiPath": "app/api/attributes/skills/route.ts",
+  "apiPathParams": "/api/attributes/skills",
+  "apiPathByKey": "app/api/attributes/skills/[id]/route.ts",
+  "apiPathParamsByKey": "/api/attributes/skills/${params.id}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "fetcherName": "fetchAttributesSkills",
+  "fetcherNameByKey": "fetchAttributesSkillsByKey",
+  "filesCreated": [
+    "../db/postgresMainDatabase/schemas/attributes/skills.ts",
+    "../app/api/attributes/skills/route.ts",
+    "../app/api/attributes/skills/[id]/route.ts",
+    "../methods/hooks/attributes/core/useFetchAttributesSkills.ts",
+    "../methods/hooks/attributes/core/useFetchAttributesSkillsByKey.ts",
+    "../methods/server-fetchers/attributes/core/getAttributesSkillsServer.ts",
+    "../methods/server-fetchers/attributes/core/getAttributesSkillsByKeyServer.ts",
+    "../methods/services/attributes/fetchAttributesSkillsService.ts",
+    "../methods/services/attributes/fetchAttributesSkillsByKeyService.ts",
+    "../store/atoms/getTable/skillsAtom.ts",
+    "../.vscode/useAttributesSkills.code-snippets",
+    "../.vscode/useAttributesSkillsByKey.code-snippets",
+    "../methods/hooks/attributes/core/useMutateAttributesSkills.ts",
+    "../methods/hooks/attributes/core/useMutateAttributesSkillsByKey.ts",
+    "./answerHistory/getTable/attributes_skills_answers.json",
+    "../methods/hooks/attributes/core/useFetchAttributesSkills.md",
+    "../methods/hooks/attributes/core/useFetchAttributesSkillsByKey.md"
+  ],
+  "selectedGenerators": [
+    "getTable"
+  ]
+}

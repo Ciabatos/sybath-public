@@ -1,0 +1,136 @@
+{
+  "promptAnswers": {
+    "schema": "world",
+    "method": "get_known_map_tiles_resources_on_tile",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "mapTilesResourceId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "world",
+  "method": "get_known_map_tiles_resources_on_tile",
+  "entityCamelName": "knownMapTilesResourcesOnTile",
+  "entityPascalName": "KnownMapTilesResourcesOnTile",
+  "entityKebabName": "get-known-map-tiles-resources-on-tile",
+  "dbFunctionName": "getKnownMapTilesResourcesOnTile",
+  "methodTypeName": "TKnownMapTilesResourcesOnTile",
+  "methodParamsTypeName": "TKnownMapTilesResourcesOnTileParams",
+  "clientMethodParamsTypeName": "TKnownMapTilesResourcesOnTileClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_map_id",
+      "camelName": "mapId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_map_tile_x",
+      "camelName": "mapTileX",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_map_tile_y",
+      "camelName": "mapTileY",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_map_id",
+      "camelName": "mapId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_map_tile_x",
+      "camelName": "mapTileX",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_map_tile_y",
+      "camelName": "mapTileY",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "map_tiles_resource_id",
+      "camelName": "mapTilesResourceId",
+      "pascalName": "MapTilesResourceId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "item_id",
+      "camelName": "itemId",
+      "pascalName": "ItemId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "quantity",
+      "camelName": "quantity",
+      "pascalName": "Quantity",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"mapTilesResourceId\"]",
+  "indexParamsColumns": "userId, mapId, mapTileX, mapTileY, playerId",
+  "indexTypeMethodName": "MapTilesResourceId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TKnownMapTilesResourcesOnTileRecordByMapTilesResourceId",
+  "indexColumns": [
+    {
+      "name": "map_tiles_resource_id",
+      "camelName": "mapTilesResourceId",
+      "pascalName": "MapTilesResourceId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_known_map_tiles_resources_on_tile",
+  "sqlParamsPlaceholders": "$1, $2, $3, $4, $5",
+  "apiPath": "app/api/world/rpc/get-known-map-tiles-resources-on-tile/[mapId]/[mapTileX]/[mapTileY]/[playerId]/route.ts",
+  "apiPathParams": "/api/world/rpc/get-known-map-tiles-resources-on-tile/${params.mapId}/${params.mapTileX}/${params.mapTileY}/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:25.430Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/world/knownMapTilesResourcesOnTile.ts",
+    "app/api/world/rpc/get-known-map-tiles-resources-on-tile/[mapId]/[mapTileX]/[mapTileY]/[playerId]/route.ts",
+    "methods/hooks/world/core/useFetchKnownMapTilesResourcesOnTile.ts",
+    "methods/server-fetchers/world/core/getKnownMapTilesResourcesOnTileServer.ts",
+    "methods/services/world/fetchKnownMapTilesResourcesOnTileService.ts",
+    "store/atoms/getMethodFetcher/knownMapTilesResourcesOnTileAtom.ts",
+    ".vscode/useKnownMapTilesResourcesOnTile.code-snippets",
+    "methods/hooks/world/core/useMutateKnownMapTilesResourcesOnTile.ts",
+    "methods/hooks/world/core/useFetchKnownMapTilesResourcesOnTile.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

@@ -1,0 +1,26 @@
+// GENERATED CODE - DO NOT EDIT MANUALLY - hookGetMethodFetcher.hbs
+
+"use client"
+import { {{indexTypeName}}, {{methodTypeName}} {{#if methodParamsColumns}}, {{clientMethodParamsTypeName}}{{/if}}  } from "@/db/postgresMainDatabase/schemas/{{schema}}/{{entityCamelName}}"
+import { {{indexMethodName}} } from "@/methods/functions/util/converters"
+import { {{entityCamelName}}Atom } from "@/store/atoms"
+import { useAtomValue, useSetAtom } from "jotai"
+import { useEffect } from "react"
+import useSWR from "swr"
+
+export function useFetch{{entityPascalName}}({{#if methodParamsColumns}} params: {{clientMethodParamsTypeName}}{{/if}}) {
+  const set{{entityPascalName}} = useSetAtom({{entityCamelName}}Atom)
+
+  const { data } = useSWR<{{methodTypeName}}[]>(`{{apiPathParams}}`, { refreshInterval: 3000 })
+
+  useEffect(() => {
+    if (data) {
+      const {{entityCamelName}} = {{{indexMethodName}}}({{{indexMethodParams}}}, data) as {{indexTypeName}}
+      set{{entityPascalName}}({{entityCamelName}})
+    }
+  }, [data, set{{entityPascalName}}])
+}
+
+export function use{{entityPascalName}}State() {
+  return useAtomValue({{entityCamelName}}Atom)
+}

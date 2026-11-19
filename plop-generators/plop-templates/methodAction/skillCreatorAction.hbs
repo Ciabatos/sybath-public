@@ -1,0 +1,56 @@
+---
+name: ai-{{actionName}}-description
+description: |
+  Action {{actionName}} description, workflow.
+
+  Use when:
+  When using action {{actionName}} or trying to understand it.
+---
+
+
+
+# {{actionName}} Action Documentation
+# function path :`methods/actions/{{schema}}/{{actionName}}.ts` 
+# function {{actionName}}(params: T{{entityPascalName}}ActionParams)
+# TypeScript Types:
+type T{{entityPascalName}}ActionParams = Omit<T{{entityPascalName}}ServiceParams, "sessionUserId"></T>
+
+### Data Flow
+function {{entityCamelName}}Service(params: T{{entityPascalName}}ServiceParams)
+path: methods/services/{{schema}}/{{entityCamelName}}Service.ts
+
+TypeScript Types:
+export type T{{entityPascalName}}ServiceParams = {
+sessionUserId: string
+playerId: number
+}
+
+Database function {{entityCamelName}}({{#if methodParamsColumns}}params: {{methodParamsTypeName}}{{/if}})
+
+path: db/postgresMainDatabase/schemas/{{schema}}/{{entityCamelName}}.ts
+TypeScript Types:
+{{#each compositeDefinitions}}
+export type {{typeName}} = {
+{{#each fields}}
+{{camelName}}: {{tsType}}
+{{/each}}
+}
+{{/each}}
+
+{{#if methodParamsColumns}}
+export type {{methodParamsTypeName}} = {
+{{#each methodParamsColumns}}
+{{camelName}}: {{tsType}}
+{{/each}}
+}{{/if}}
+
+export type {{methodTypeName}} = {
+{{#each methodColumns}}
+{{camelName}}{{optional}}: {{tsType}}
+{{/each}}
+}
+
+PostgreSQL Database
+"schema": "{{schema}}"
+"method": "{{sqlFunctionName}}"
+You have more information in mcp game-db

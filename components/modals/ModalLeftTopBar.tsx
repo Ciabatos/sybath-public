@@ -1,0 +1,19 @@
+// GENERATED CODE - DO NOT EDIT MANUALLY - modalCreateModal.hbs
+"use client"
+
+import styles from "@/components/modals/styles/ModalLeftTopBar.module.css"
+import { useModalLeftTopBar } from "@/methods/hooks/modals/useModalLeftTopBar"
+
+export default function ModalLeftTopBar() {
+  const { ModalLeftTopBar, resetModalLeftTopBar } = useModalLeftTopBar()
+
+  if (!ModalLeftTopBar) return null
+
+  return (
+    <div className={styles.modalOverlay}>
+      <div className={styles.modalContainer}>
+        <ModalLeftTopBar closePanel={resetModalLeftTopBar } />
+      </div>
+    </div>
+  )
+}

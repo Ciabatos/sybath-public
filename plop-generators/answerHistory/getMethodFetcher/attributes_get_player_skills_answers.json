@@ -1,0 +1,100 @@
+{
+  "promptAnswers": {
+    "schema": "attributes",
+    "method": "get_player_skills",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "skillId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "attributes",
+  "method": "get_player_skills",
+  "entityCamelName": "playerSkills",
+  "entityPascalName": "PlayerSkills",
+  "entityKebabName": "get-player-skills",
+  "dbFunctionName": "getPlayerSkills",
+  "methodTypeName": "TPlayerSkills",
+  "methodParamsTypeName": "TPlayerSkillsParams",
+  "clientMethodParamsTypeName": "TPlayerSkillsClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "skill_id",
+      "camelName": "skillId",
+      "pascalName": "SkillId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "value",
+      "camelName": "value",
+      "pascalName": "Value",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"skillId\"]",
+  "indexParamsColumns": "userId, playerId",
+  "indexTypeMethodName": "SkillId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TPlayerSkillsRecordBySkillId",
+  "indexColumns": [
+    {
+      "name": "skill_id",
+      "camelName": "skillId",
+      "pascalName": "SkillId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_player_skills",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/attributes/rpc/get-player-skills/[playerId]/route.ts",
+  "apiPathParams": "/api/attributes/rpc/get-player-skills/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:22.689Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/attributes/playerSkills.ts",
+    "app/api/attributes/rpc/get-player-skills/[playerId]/route.ts",
+    "methods/hooks/attributes/core/useFetchPlayerSkills.ts",
+    "methods/server-fetchers/attributes/core/getPlayerSkillsServer.ts",
+    "methods/services/attributes/fetchPlayerSkillsService.ts",
+    "store/atoms/getMethodFetcher/playerSkillsAtom.ts",
+    ".vscode/usePlayerSkills.code-snippets",
+    "methods/hooks/attributes/core/useMutatePlayerSkills.ts",
+    "methods/hooks/attributes/core/useFetchPlayerSkills.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

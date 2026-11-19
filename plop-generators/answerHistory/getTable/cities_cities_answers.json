@@ -1,0 +1,133 @@
+{
+  "promptAnswers": {
+    "schema": "cities",
+    "table": "cities",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "map_tile_x",
+      "map_tile_y"
+    ],
+    "paramsColumns": [
+      "map_id"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": false
+  },
+  "schema": "cities",
+  "table": "cities",
+  "tableCamelName": "cities",
+  "tablePascalName": "Cities",
+  "tableKebabName": "cities",
+  "schemaTablePascalName": "CitiesCities",
+  "methodTypeName": "TCitiesCities",
+  "methodParamsTypeName": "TCitiesCitiesParams",
+  "methodParamsColumns": [
+    {
+      "name": "map_id",
+      "camelName": "mapId",
+      "tsType": "number"
+    }
+  ],
+  "methodName": "getCitiesCities",
+  "methodNameByKey": "getCitiesCitiesByKey",
+  "methodRecords": "get_cities",
+  "methodRecordsByKey": "get_cities_by_key",
+  "sqlParamsPlaceholders": "$1",
+  "methodColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "map_id",
+      "camelName": "mapId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "map_tile_x",
+      "camelName": "mapTileX",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "MapTileX"
+    },
+    {
+      "name": "map_tile_y",
+      "camelName": "mapTileY",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "MapTileY"
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "move_cost",
+      "camelName": "moveCost",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "image_url",
+      "camelName": "imageUrl",
+      "tsType": "string",
+      "optional": "?"
+    }
+  ],
+  "indexMethodParams": "[\"mapTileX\", \"mapTileY\"]",
+  "indexParamsColumns": "mapId",
+  "indexTypeMethodName": "MapTileXMapTileY",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TCitiesCitiesRecordByMapTileXMapTileY",
+  "indexColumns": [
+    {
+      "name": "map_tile_x",
+      "camelName": "mapTileX",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "MapTileX"
+    },
+    {
+      "name": "map_tile_y",
+      "camelName": "mapTileY",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "MapTileY"
+    }
+  ],
+  "apiPath": "app/api/cities/cities/route.ts",
+  "apiPathParams": "/api/cities/cities",
+  "apiPathByKey": "app/api/cities/cities/[mapId]/route.ts",
+  "apiPathParamsByKey": "/api/cities/cities/${params.mapId}",
+  "generateMutation": true,
+  "mutationMergeOldData": false,
+  "fetcherName": "fetchCitiesCities",
+  "fetcherNameByKey": "fetchCitiesCitiesByKey",
+  "selectedGenerators": [
+    "getTable"
+  ],
+  "filesCreated": [
+    "../db/postgresMainDatabase/schemas/cities/cities.ts",
+    "../app/api/cities/cities/route.ts",
+    "../app/api/cities/cities/[mapId]/route.ts",
+    "../methods/hooks/cities/core/useFetchCitiesCities.ts",
+    "../methods/hooks/cities/core/useFetchCitiesCitiesByKey.ts",
+    "../methods/server-fetchers/cities/core/getCitiesCitiesServer.ts",
+    "../methods/server-fetchers/cities/core/getCitiesCitiesByKeyServer.ts",
+    "../methods/services/cities/fetchCitiesCitiesService.ts",
+    "../methods/services/cities/fetchCitiesCitiesByKeyService.ts",
+    "../store/atoms/getTable/citiesAtom.ts",
+    "../.vscode/useCitiesCities.code-snippets",
+    "../.vscode/useCitiesCitiesByKey.code-snippets",
+    "../methods/hooks/cities/core/useMutateCitiesCities.ts",
+    "../methods/hooks/cities/core/useMutateCitiesCitiesByKey.ts",
+    "./answerHistory/getTable/cities_cities_answers.json",
+    "../methods/hooks/cities/core/useFetchCitiesCities.md",
+    "../methods/hooks/cities/core/useFetchCitiesCitiesByKey.md"
+  ]
+}

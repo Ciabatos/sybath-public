@@ -1,0 +1,100 @@
+{
+  "promptAnswers": {
+    "schema": "squad",
+    "method": "get_squad",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "squadId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": false
+  },
+  "schema": "squad",
+  "method": "get_squad",
+  "entityCamelName": "squad",
+  "entityPascalName": "Squad",
+  "entityKebabName": "get-squad",
+  "dbFunctionName": "getSquad",
+  "methodTypeName": "TSquad",
+  "methodParamsTypeName": "TSquadParams",
+  "clientMethodParamsTypeName": "TSquadClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "squad_id",
+      "camelName": "squadId",
+      "pascalName": "SquadId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "squad_name",
+      "camelName": "squadName",
+      "pascalName": "SquadName",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "squad_image_portrait",
+      "camelName": "squadImagePortrait",
+      "pascalName": "SquadImagePortrait",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"squadId\"]",
+  "indexParamsColumns": "userId, playerId",
+  "indexTypeMethodName": "SquadId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TSquadRecordBySquadId",
+  "indexColumns": [
+    {
+      "name": "squad_id",
+      "camelName": "squadId",
+      "pascalName": "SquadId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_squad",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/squad/rpc/get-squad/[playerId]/route.ts",
+  "apiPathParams": "/api/squad/rpc/get-squad/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": false,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:24.651Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/squad/squad.ts",
+    "app/api/squad/rpc/get-squad/[playerId]/route.ts",
+    "methods/hooks/squad/core/useFetchSquad.ts",
+    "methods/server-fetchers/squad/core/getSquadServer.ts",
+    "methods/services/squad/fetchSquadService.ts",
+    "store/atoms/getMethodFetcher/squadAtom.ts",
+    ".vscode/useSquad.code-snippets",
+    "methods/hooks/squad/core/useMutateSquad.ts",
+    "methods/hooks/squad/core/useFetchSquad.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

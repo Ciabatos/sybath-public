@@ -1,0 +1,149 @@
+{
+  "promptAnswers": {
+    "schema": "squad",
+    "method": "get_squad_invites",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "id"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "squad",
+  "method": "get_squad_invites",
+  "entityCamelName": "squadInvites",
+  "entityPascalName": "SquadInvites",
+  "entityKebabName": "get-squad-invites",
+  "dbFunctionName": "getSquadInvites",
+  "methodTypeName": "TSquadInvites",
+  "methodParamsTypeName": "TSquadInvitesParams",
+  "clientMethodParamsTypeName": "TSquadInvitesClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "pascalName": "Id",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "squad_id",
+      "camelName": "squadId",
+      "pascalName": "SquadId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "squad_name",
+      "camelName": "squadName",
+      "pascalName": "SquadName",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "nickname",
+      "camelName": "nickname",
+      "pascalName": "Nickname",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "second_name",
+      "camelName": "secondName",
+      "pascalName": "SecondName",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "created_at",
+      "camelName": "createdAt",
+      "pascalName": "CreatedAt",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "map_id",
+      "camelName": "mapId",
+      "pascalName": "MapId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "map_tile_x",
+      "camelName": "mapTileX",
+      "pascalName": "MapTileX",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "map_tile_y",
+      "camelName": "mapTileY",
+      "pascalName": "MapTileY",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"id\"]",
+  "indexParamsColumns": "userId, playerId",
+  "indexTypeMethodName": "Id",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TSquadInvitesRecordById",
+  "indexColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "pascalName": "Id",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_squad_invites",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/squad/rpc/get-squad-invites/[playerId]/route.ts",
+  "apiPathParams": "/api/squad/rpc/get-squad-invites/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:24.741Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/squad/squadInvites.ts",
+    "app/api/squad/rpc/get-squad-invites/[playerId]/route.ts",
+    "methods/hooks/squad/core/useFetchSquadInvites.ts",
+    "methods/server-fetchers/squad/core/getSquadInvitesServer.ts",
+    "methods/services/squad/fetchSquadInvitesService.ts",
+    "store/atoms/getMethodFetcher/squadInvitesAtom.ts",
+    ".vscode/useSquadInvites.code-snippets",
+    "methods/hooks/squad/core/useMutateSquadInvites.ts",
+    "methods/hooks/squad/core/useFetchSquadInvites.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

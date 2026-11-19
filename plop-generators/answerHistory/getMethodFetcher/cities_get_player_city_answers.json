@@ -1,0 +1,86 @@
+{
+  "promptAnswers": {
+    "schema": "cities",
+    "method": "get_player_city",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "cityId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": false
+  },
+  "schema": "cities",
+  "method": "get_player_city",
+  "entityCamelName": "playerCity",
+  "entityPascalName": "PlayerCity",
+  "entityKebabName": "get-player-city",
+  "dbFunctionName": "getPlayerCity",
+  "methodTypeName": "TPlayerCity",
+  "methodParamsTypeName": "TPlayerCityParams",
+  "clientMethodParamsTypeName": "TPlayerCityClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "city_id",
+      "camelName": "cityId",
+      "pascalName": "CityId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"cityId\"]",
+  "indexParamsColumns": "userId, playerId",
+  "indexTypeMethodName": "CityId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TPlayerCityRecordByCityId",
+  "indexColumns": [
+    {
+      "name": "city_id",
+      "camelName": "cityId",
+      "pascalName": "CityId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_player_city",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/cities/rpc/get-player-city/[playerId]/route.ts",
+  "apiPathParams": "/api/cities/rpc/get-player-city/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": false,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:22.925Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/cities/playerCity.ts",
+    "app/api/cities/rpc/get-player-city/[playerId]/route.ts",
+    "methods/hooks/cities/core/useFetchPlayerCity.ts",
+    "methods/server-fetchers/cities/core/getPlayerCityServer.ts",
+    "methods/services/cities/fetchPlayerCityService.ts",
+    "store/atoms/getMethodFetcher/playerCityAtom.ts",
+    ".vscode/usePlayerCity.code-snippets",
+    "methods/hooks/cities/core/useMutatePlayerCity.ts",
+    "methods/hooks/cities/core/useFetchPlayerCity.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

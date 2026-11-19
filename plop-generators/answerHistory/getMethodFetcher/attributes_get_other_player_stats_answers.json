@@ -1,0 +1,112 @@
+{
+  "promptAnswers": {
+    "schema": "attributes",
+    "method": "get_other_player_stats",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "statId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "attributes",
+  "method": "get_other_player_stats",
+  "entityCamelName": "otherPlayerStats",
+  "entityPascalName": "OtherPlayerStats",
+  "entityKebabName": "get-other-player-stats",
+  "dbFunctionName": "getOtherPlayerStats",
+  "methodTypeName": "TOtherPlayerStats",
+  "methodParamsTypeName": "TOtherPlayerStatsParams",
+  "clientMethodParamsTypeName": "TOtherPlayerStatsClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_other_player_id",
+      "camelName": "otherPlayerId",
+      "tsType": "string",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_other_player_id",
+      "camelName": "otherPlayerId",
+      "tsType": "string",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "stat_id",
+      "camelName": "statId",
+      "pascalName": "StatId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "value",
+      "camelName": "value",
+      "pascalName": "Value",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"statId\"]",
+  "indexParamsColumns": "userId, playerId, otherPlayerId",
+  "indexTypeMethodName": "StatId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TOtherPlayerStatsRecordByStatId",
+  "indexColumns": [
+    {
+      "name": "stat_id",
+      "camelName": "statId",
+      "pascalName": "StatId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_other_player_stats",
+  "sqlParamsPlaceholders": "$1, $2, $3",
+  "apiPath": "app/api/attributes/rpc/get-other-player-stats/[playerId]/[otherPlayerId]/route.ts",
+  "apiPathParams": "/api/attributes/rpc/get-other-player-stats/${params.playerId}/${params.otherPlayerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:22.324Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/attributes/otherPlayerStats.ts",
+    "app/api/attributes/rpc/get-other-player-stats/[playerId]/[otherPlayerId]/route.ts",
+    "methods/hooks/attributes/core/useFetchOtherPlayerStats.ts",
+    "methods/server-fetchers/attributes/core/getOtherPlayerStatsServer.ts",
+    "methods/services/attributes/fetchOtherPlayerStatsService.ts",
+    "store/atoms/getMethodFetcher/otherPlayerStatsAtom.ts",
+    ".vscode/useOtherPlayerStats.code-snippets",
+    "methods/hooks/attributes/core/useMutateOtherPlayerStats.ts",
+    "methods/hooks/attributes/core/useFetchOtherPlayerStats.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

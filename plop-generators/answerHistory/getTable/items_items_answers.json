@@ -1,0 +1,106 @@
+{
+  "promptAnswers": {
+    "schema": "items",
+    "table": "items",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "id"
+    ],
+    "paramsColumns": [
+      "id"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "items",
+  "table": "items",
+  "tableCamelName": "items",
+  "tablePascalName": "Items",
+  "tableKebabName": "items",
+  "schemaTablePascalName": "ItemsItems",
+  "methodTypeName": "TItemsItems",
+  "methodParamsTypeName": "TItemsItemsParams",
+  "methodParamsColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number"
+    }
+  ],
+  "methodName": "getItemsItems",
+  "methodNameByKey": "getItemsItemsByKey",
+  "methodRecords": "get_items",
+  "methodRecordsByKey": "get_items_by_key",
+  "sqlParamsPlaceholders": "$1",
+  "methodColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "Id"
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "tsType": "string",
+      "optional": "?"
+    },
+    {
+      "name": "description",
+      "camelName": "description",
+      "tsType": "string",
+      "optional": "?"
+    },
+    {
+      "name": "image",
+      "camelName": "image",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"id\"]",
+  "indexParamsColumns": "id",
+  "indexTypeMethodName": "Id",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TItemsItemsRecordById",
+  "indexColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "Id"
+    }
+  ],
+  "apiPath": "app/api/items/items/route.ts",
+  "apiPathParams": "/api/items/items",
+  "apiPathByKey": "app/api/items/items/[id]/route.ts",
+  "apiPathParamsByKey": "/api/items/items/${params.id}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "fetcherName": "fetchItemsItems",
+  "fetcherNameByKey": "fetchItemsItemsByKey",
+  "selectedGenerators": [
+    "getTable"
+  ],
+  "filesCreated": [
+    "../db/postgresMainDatabase/schemas/items/items.ts",
+    "../app/api/items/items/route.ts",
+    "../app/api/items/items/[id]/route.ts",
+    "../methods/hooks/items/core/useFetchItemsItems.ts",
+    "../methods/hooks/items/core/useFetchItemsItemsByKey.ts",
+    "../methods/server-fetchers/items/core/getItemsItemsServer.ts",
+    "../methods/server-fetchers/items/core/getItemsItemsByKeyServer.ts",
+    "../methods/services/items/fetchItemsItemsService.ts",
+    "../methods/services/items/fetchItemsItemsByKeyService.ts",
+    "../store/atoms/getTable/itemsAtom.ts",
+    "../.vscode/useItemsItems.code-snippets",
+    "../.vscode/useItemsItemsByKey.code-snippets",
+    "../methods/hooks/items/core/useMutateItemsItems.ts",
+    "../methods/hooks/items/core/useMutateItemsItemsByKey.ts",
+    "./answerHistory/getTable/items_items_answers.json",
+    "../methods/hooks/items/core/useFetchItemsItems.md",
+    "../methods/hooks/items/core/useFetchItemsItemsByKey.md"
+  ]
+}

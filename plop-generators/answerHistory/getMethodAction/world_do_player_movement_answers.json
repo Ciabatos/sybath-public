@@ -1,0 +1,93 @@
+{
+  "promptAnswers": {
+    "schema": "world",
+    "method": "do_player_movement",
+    "usePrevious": false
+  },
+  "schema": "world",
+  "method": "do_player_movement",
+  "entityCamelName": "doPlayerMovement",
+  "entityPascalName": "DoPlayerMovement",
+  "actionName": "doPlayerMovementAction",
+  "dbFunctionName": "doPlayerMovement",
+  "methodTypeName": "TDoPlayerMovement",
+  "methodParamsTypeName": "TDoPlayerMovementParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_path",
+      "camelName": "path",
+      "tsType": "TCtPath[]",
+      "isJson": true
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "status",
+      "camelName": "status",
+      "pascalName": "Status",
+      "tsType": "boolean",
+      "optional": ""
+    },
+    {
+      "name": "message",
+      "camelName": "message",
+      "pascalName": "Message",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "do_player_movement",
+  "sqlParamsPlaceholders": "$1, $2, $3",
+  "compositeDefinitions": [
+    {
+      "typeName": "TCtPath",
+      "fields": [
+        {
+          "name": "order",
+          "camelName": "order",
+          "tsType": "number"
+        },
+        {
+          "name": "map_id",
+          "camelName": "mapId",
+          "tsType": "number"
+        },
+        {
+          "name": "x",
+          "camelName": "x",
+          "tsType": "number"
+        },
+        {
+          "name": "y",
+          "camelName": "y",
+          "tsType": "number"
+        },
+        {
+          "name": "total_move_cost",
+          "camelName": "totalMoveCost",
+          "tsType": "number"
+        }
+      ]
+    }
+  ],
+  "dateCreated": "2026-09-22T22:00:19.483Z",
+  "filesCreated": [
+    "methods/actions/world/doPlayerMovementAction.ts",
+    "methods/actions/world/doPlayerMovementAction.md",
+    "db/postgresMainDatabase/schemas/world/doPlayerMovement.ts",
+    "methods/services/world/doPlayerMovementService.ts"
+  ],
+  "generatorName": "getMethodAction"
+}

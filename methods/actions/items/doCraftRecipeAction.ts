@@ -1,0 +1,45 @@
+// GENERATED CODE - SHOULD BE EDITED MANUALLY TO END CONFIGURATION - actionGetMethodAction.hbs
+"use server"
+
+import { auth } from "@/lib/auth"
+import { TDoCraftRecipeServiceParams, doCraftRecipeService } from "@/methods/services/items/doCraftRecipeService"
+import { headers } from "next/headers"
+
+type TDoCraftRecipeActionParams = Omit<TDoCraftRecipeServiceParams, "userId">
+
+export async function doCraftRecipeAction(params: TDoCraftRecipeActionParams) {
+  try {
+    const session = await auth.api.getSession({ headers: await headers() })
+    const sessionUserId = session?.user?.id
+
+    if (!sessionUserId) {
+      return {
+        status: false,
+        message: "Active player mismatch",
+      }
+    }
+
+    //MANUAL CODE - START
+
+    //MANUAL CODE - END
+
+    const data: TDoCraftRecipeServiceParams = {
+      userId: sessionUserId,
+      ...params,
+    }
+
+    const result = await doCraftRecipeService(data)
+    return result
+  } catch (error) {
+    console.error("Error doCraftRecipeAction :", {
+      error,
+      params,
+      timestamp: new Date().toISOString(),
+    })
+
+    return {
+      status: false,
+      message: "Unexpected error occurred. Please refresh the page.",
+    }
+  }
+}

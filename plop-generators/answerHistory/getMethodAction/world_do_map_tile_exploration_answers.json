@@ -1,0 +1,80 @@
+{
+  "promptAnswers": {
+    "schema": "world",
+    "method": "do_map_tile_exploration",
+    "usePrevious": false
+  },
+  "schema": "world",
+  "method": "do_map_tile_exploration",
+  "entityCamelName": "doMapTileExploration",
+  "entityPascalName": "DoMapTileExploration",
+  "actionName": "doMapTileExplorationAction",
+  "dbFunctionName": "doMapTileExploration",
+  "methodTypeName": "TDoMapTileExploration",
+  "methodParamsTypeName": "TDoMapTileExplorationParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_map_id",
+      "camelName": "mapId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_x",
+      "camelName": "x",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_y",
+      "camelName": "y",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_exploration_level",
+      "camelName": "explorationLevel",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "status",
+      "camelName": "status",
+      "pascalName": "Status",
+      "tsType": "boolean",
+      "optional": ""
+    },
+    {
+      "name": "message",
+      "camelName": "message",
+      "pascalName": "Message",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "do_map_tile_exploration",
+  "sqlParamsPlaceholders": "$1, $2, $3, $4, $5, $6",
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:00:15.165Z",
+  "filesCreated": [
+    "methods/actions/world/doMapTileExplorationAction.ts",
+    "methods/actions/world/doMapTileExplorationAction.md",
+    "db/postgresMainDatabase/schemas/world/doMapTileExploration.ts",
+    "methods/services/world/doMapTileExplorationService.ts"
+  ],
+  "generatorName": "getMethodAction"
+}

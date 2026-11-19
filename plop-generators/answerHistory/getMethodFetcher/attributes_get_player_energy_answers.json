@@ -1,0 +1,100 @@
+{
+  "promptAnswers": {
+    "schema": "attributes",
+    "method": "get_player_energy",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "lastRegeneratedAt"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "attributes",
+  "method": "get_player_energy",
+  "entityCamelName": "playerEnergy",
+  "entityPascalName": "PlayerEnergy",
+  "entityKebabName": "get-player-energy",
+  "dbFunctionName": "getPlayerEnergy",
+  "methodTypeName": "TPlayerEnergy",
+  "methodParamsTypeName": "TPlayerEnergyParams",
+  "clientMethodParamsTypeName": "TPlayerEnergyClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "current_energy",
+      "camelName": "currentEnergy",
+      "pascalName": "CurrentEnergy",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "max_energy",
+      "camelName": "maxEnergy",
+      "pascalName": "MaxEnergy",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "last_regenerated_at",
+      "camelName": "lastRegeneratedAt",
+      "pascalName": "LastRegeneratedAt",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"lastRegeneratedAt\"]",
+  "indexParamsColumns": "userId, playerId",
+  "indexTypeMethodName": "LastRegeneratedAt",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TPlayerEnergyRecordByLastRegeneratedAt",
+  "indexColumns": [
+    {
+      "name": "last_regenerated_at",
+      "camelName": "lastRegeneratedAt",
+      "pascalName": "LastRegeneratedAt",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_player_energy",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/attributes/rpc/get-player-energy/[playerId]/route.ts",
+  "apiPathParams": "/api/attributes/rpc/get-player-energy/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:22.600Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/attributes/playerEnergy.ts",
+    "app/api/attributes/rpc/get-player-energy/[playerId]/route.ts",
+    "methods/hooks/attributes/core/useFetchPlayerEnergy.ts",
+    "methods/server-fetchers/attributes/core/getPlayerEnergyServer.ts",
+    "methods/services/attributes/fetchPlayerEnergyService.ts",
+    "store/atoms/getMethodFetcher/playerEnergyAtom.ts",
+    ".vscode/usePlayerEnergy.code-snippets",
+    "methods/hooks/attributes/core/useMutatePlayerEnergy.ts",
+    "methods/hooks/attributes/core/useFetchPlayerEnergy.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

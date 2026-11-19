@@ -1,0 +1,256 @@
+"use client"
+
+import GatherResource from "@/components/items/GatherResource"
+import ExploreButtonCancel from "@/components/map/ExploreButtonCancel"
+import ExploreButtonConfirm from "@/components/map/ExploreButtonConfirm"
+import ExploreButtonPlan from "@/components/map/ExploreButtonPlan"
+import MoveButtonCancel from "@/components/map/MoveButtonCancel"
+import MoveButtonConfirm from "@/components/map/MoveButtonConfirm"
+import MoveButtonPlan from "@/components/map/MoveButtonPlan"
+import { Button } from "@/components/ui/button"
+import { Field, FieldLabel } from "@/components/ui/field"
+import { Progress } from "@/components/ui/progress"
+import { useModalBottomLeft } from "@/methods/hooks/modals/useModalBottomLeft"
+import { useModalRightCenter } from "@/methods/hooks/modals/useModalRightCenter"
+import { usePlayerExploration } from "@/methods/hooks/players/composite/usePlayerExploration"
+import { usePlayerMovement } from "@/methods/hooks/players/composite/usePlayerMovement"
+import { useMapTileActions } from "@/methods/hooks/world/composite/useMapTileActions"
+import { TMapTileResource, useMapTileDetail } from "@/methods/hooks/world/composite/useMapTileDetail"
+import { EPanelsBottomLeft } from "@/types/enumeration/EPanelsBottomLeft"
+import { X } from "lucide-react"
+import { Activity, useEffect, useState } from "react"
+import styles from "./styles/MapTileDetail.module.css"
+
+export default function MapTileDetail() {
+  const { resetModalRightCenter } = useModalRightCenter()
+  const { openModalBottomLeft } = useModalBottomLeft()
+  const { clickedMapTile } = useMapTileActions()
+
+  // ── MOVEMENT LOGIC  ──────────────────────────────────────────
+  const { isMoving } = usePlayerMovement()
+
+  // ── EXPLORATION LOGIC  ──────────────────────────────────────────s
+  const { isExploring } = usePlayerExploration()
+
+  // ── GATHER LOGIC  ──────────────────────────────────────────
+  const { combinedKnownMapTilesResourcesOnTile } = useMapTileDetail()
+  const [clickedResource, setClickedResource] = useState<TMapTileResource | null>(null)
+
+  useEffect(() => {
+    setClickedResource(null)
+  }, [clickedMapTile])
+
+  if (!clickedMapTile) {
+    return null
+  }
+  const onClose = () => {
+    resetModalRightCenter()
+  }
+
+  function handlePlayersListOnTile() {
+    openModalBottomLeft(EPanelsBottomLeft.PlayersOnTile)
+  }
+
+  function handleResourceOnTile(resource: TMapTileResource) {
+    setClickedResource(resource)
+  }
+
+  // ── DERIVED ────────────────────────────────────────────────────────────────
+  const terrainName = clickedMapTile?.terrainTypes?.name
+  const terrainTypesMoveCost = clickedMapTile?.terrainTypes?.moveCost
+  const landscapeTypesMoveCost = clickedMapTile?.landscapeTypes?.moveCost
+  const citiesMoveCost = clickedMapTile?.cities?.moveCost
+  const districtTypesMoveCost = clickedMapTile?.districtTypes?.moveCost
+  const totalMoveCost =
+    (terrainTypesMoveCost || 0) + (landscapeTypesMoveCost || 0) + (citiesMoveCost || 0) + (districtTypesMoveCost || 0)
+  const landscapeName = clickedMapTile?.landscapeTypes?.name
+  const cityName = clickedMapTile?.cities?.name
+  const districtName = clickedMapTile?.districts?.name
+  const districtTypeName = clickedMapTile?.districtTypes?.name
+
+  return (
+    <div className={styles.overlay}>
+      <Activity mode={!!clickedResource ? "visible" : "hidden"}>
+        <GatherResource
+          onClose={() => setClickedResource(null)}
+          resource={clickedResource}
+        />
+      </Activity>
+      <div className={styles.panel}>
+        <div className={styles.header}>
+          <div className={styles.titleSection}>
+            <h2 className={styles.title}>{terrainName}</h2>
+            <p className={styles.description}>{landscapeName}</p>
+
+            <span className={styles.coordinates}>
+              [{clickedMapTile?.mapTiles.x}, {clickedMapTile?.mapTiles.y}]
+            </span>
+          </div>
+          <Button
+            onClick={onClose}
+            variant='ghost'
+            size='icon'
+            className={styles.closeButton}
+          >
+            <X className={styles.closeIcon} />
+          </Button>
+        </div>
+
+        <div className={styles.content}>
+          <section className={styles.section}>
+            <h3 className={styles.sectionTitle}>Movement cost</h3>
+            <div
+              className={styles.difficultyBadge}
+              data-difficulty={totalMoveCost}
+            >
+              {totalMoveCost}
+            </div>
+          </section>
+
+          {cityName && (
+            <section className={styles.section}>
+              <h3 className={styles.sectionTitle}>Settlements</h3>
+              <div className={styles.resourceList}>
+                <div
+                  key={
+                    clickedMapTile?.mapTiles.mapId +
+                    clickedMapTile?.mapTiles.x +
+                    clickedMapTile?.mapTiles.y +
+                    "Settlements"
+                  }
+                  className={styles.resourceItem}
+                >
+                  <span className={styles.resourceIcon}>📦</span>
+                  <span className={styles.resourceName}>{cityName}</span>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {districtName && (
+            <section className={styles.section}>
+              <h3 className={styles.sectionTitle}>Districts</h3>
+              <div className={styles.resourceList}>
+                <div
+                  key={
+                    clickedMapTile?.mapTiles.mapId +
+                    clickedMapTile?.mapTiles.x +
+                    clickedMapTile?.mapTiles.y +
+                    "Districts"
+                  }
+                  className={styles.resourceItem}
+                >
+                  <span className={styles.resourceIcon}>📦</span>
+                  <span className={styles.resourceName}>{districtName}</span>
+                  <span className={styles.resourceName}>{districtTypeName}</span>
+                </div>
+              </div>
+            </section>
+          )}
+
+          <section className={styles.section}>
+            <div className={styles.resourceList}>
+              {combinedKnownMapTilesResourcesOnTile
+                ?.filter((resource) => resource.itemId !== null)
+                .map((resource) => (
+                  <Button
+                    key={resource.mapTilesResourceId + "KnownMapTilesResourcesOnTile"}
+                    className={styles.resourceItem}
+                    onClick={() => {
+                      handleResourceOnTile(resource)
+                    }}
+                  >
+                    <span className={styles.resourceIcon}>📦</span>
+                    <span className={styles.resourceName}>{resource.name}</span>
+                  </Button>
+                ))}
+
+              {combinedKnownMapTilesResourcesOnTile && (
+                <div className={styles.resourceStats}>
+                  <Field className='w-full max-w-sm'>
+                    <FieldLabel htmlFor='progress-upload'>
+                      <span>Exploration progress</span>
+                      <span className='ml-auto'>{`${
+                        combinedKnownMapTilesResourcesOnTile.length === 0
+                          ? 100
+                          : Math.round(
+                              (combinedKnownMapTilesResourcesOnTile.filter((r) => r.itemId !== null).length /
+                                combinedKnownMapTilesResourcesOnTile.length) *
+                                100,
+                            )
+                      }%`}</span>
+                    </FieldLabel>
+                    <Progress
+                      value={
+                        combinedKnownMapTilesResourcesOnTile.length === 0
+                          ? 100
+                          : Math.round(
+                              (combinedKnownMapTilesResourcesOnTile.filter((r) => r.itemId !== null).length /
+                                combinedKnownMapTilesResourcesOnTile.length) *
+                                100,
+                            )
+                      }
+                      id='progress-upload'
+                    />
+                  </Field>
+                </div>
+              )}
+            </div>
+          </section>
+
+          <section className={styles.section}>
+            <h3 className={styles.sectionTitle}>Encounters</h3>
+            <div className={styles.encounterList}>
+              <div
+                key={
+                  clickedMapTile?.mapTiles.mapId +
+                  clickedMapTile?.mapTiles.x +
+                  clickedMapTile?.mapTiles.y +
+                  "Encounters"
+                }
+                className={styles.encounterItem}
+              >
+                <Button
+                  className={styles.actionButton}
+                  onClick={() => {
+                    handlePlayersListOnTile()
+                  }}
+                >
+                  Players list on tile
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          <section className={styles.section}>
+            <div className={styles.actionButtons}>
+              <Button className={styles.actionButton}>Set Special Place Like TradePost or church</Button>
+              <Button className={styles.actionButton}>Set Camp</Button>
+
+              {/*  HUNT LOGIC */}
+              <Button className={styles.actionButton}>Hunt</Button>
+
+              {/*  MOVEMENT LOGIC */}
+              {!isMoving ? (
+                <MoveButtonPlan />
+              ) : (
+                <>
+                  <MoveButtonConfirm />
+                  <MoveButtonCancel />
+                </>
+              )}
+              {!isExploring ? (
+                <ExploreButtonPlan />
+              ) : (
+                <>
+                  <ExploreButtonConfirm />
+                  <ExploreButtonCancel />
+                </>
+              )}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  )
+}

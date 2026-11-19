@@ -1,0 +1,28 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "christian-kohler.path-intellisense",
+    "clinyong.vscode-css-modules",
+    "codeium.codeium",
+    "dbaeumer.vscode-eslint",
+    "devine-davies.make-hidden",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-rename-tag",
+    "github.copilot",
+    "github.copilot-chat",
+    "j3lte.folder-customization",
+    "kisstkondoros.vscode-gutter-preview",
+    "meganrogge.template-string-converter",
+    "mikestead.dotenv",
+    "ms-vscode.vscode-typescript-next",
+    "mylesmurphy.prettify-ts",
+    "naumovs.color-highlight",
+    "sburg.vscode-javascript-booster",
+    "shawspring.next-route-path",
+    "vscode-icons-team.vscode-icons",
+    "wix.vscode-import-cost",
+    "xyz.local-history",
+    "yoavbls.pretty-ts-errors",
+    "github.github-vscode-theme"
+  ]
+}

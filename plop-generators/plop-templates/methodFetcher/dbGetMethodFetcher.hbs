@@ -1,0 +1,49 @@
+// GENERATED CODE - DO NOT EDIT MANUALLY - dbGetMethodFetcher.hbs
+
+"use server"
+import { query } from "@/db/postgresMainDatabase/postgresMainDatabase"
+import { snakeToCamelRows } from "@/methods/functions/util/snakeToCamel"
+
+{{#if methodParamsColumns}}
+export type {{methodParamsTypeName}} = {
+{{#each methodParamsColumns}}
+  {{camelName}}: {{tsType}}
+{{/each}}
+}
+
+export type {{clientMethodParamsTypeName}} = Omit<{{methodParamsTypeName}}, "userId">
+{{/if}}
+
+{{#each compositeDefinitions}}
+export type {{typeName}} = {
+{{#each fields}}
+  {{camelName}}: {{tsType}}
+{{/each}}
+}
+{{/each}}
+
+export type {{methodTypeName}} = {
+{{#each methodColumns}}
+  {{camelName}}{{optional}}: {{tsType}}
+{{/each}}
+}
+
+export type {{indexTypeName}} = Record<string, {{methodTypeName}}>
+
+export async function {{dbFunctionName}}(params: {{methodParamsTypeName}}) {
+  try {
+    const sqlParams = Object.values(params)
+    const sql = `SELECT * FROM {{schema}}.{{sqlFunctionName}}({{sqlParamsPlaceholders}});`
+    
+    const result = await query(sql, sqlParams)
+    return snakeToCamelRows(result.rows) as {{methodTypeName}}[]
+  } catch (error) {
+    console.error("Error fetching {{dbFunctionName}}:", {
+      error,
+      params,
+      timestamp: new Date().toISOString(),
+    })
+    
+    throw new Error("Failed to fetch {{dbFunctionName}}")
+  }
+}

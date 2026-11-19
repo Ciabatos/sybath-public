@@ -1,0 +1,128 @@
+{
+  "promptAnswers": {
+    "schema": "inventory",
+    "method": "get_district_inventory",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "slotId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "inventory",
+  "method": "get_district_inventory",
+  "entityCamelName": "districtInventory",
+  "entityPascalName": "DistrictInventory",
+  "entityKebabName": "get-district-inventory",
+  "dbFunctionName": "getDistrictInventory",
+  "methodTypeName": "TDistrictInventory",
+  "methodParamsTypeName": "TDistrictInventoryParams",
+  "clientMethodParamsTypeName": "TDistrictInventoryClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_district_id",
+      "camelName": "districtId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_district_id",
+      "camelName": "districtId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "slot_id",
+      "camelName": "slotId",
+      "pascalName": "SlotId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "container_id",
+      "camelName": "containerId",
+      "pascalName": "ContainerId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "inventory_container_type_id",
+      "camelName": "inventoryContainerTypeId",
+      "pascalName": "InventoryContainerTypeId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "inventory_slot_type_id",
+      "camelName": "inventorySlotTypeId",
+      "pascalName": "InventorySlotTypeId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "item_id",
+      "camelName": "itemId",
+      "pascalName": "ItemId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "quantity",
+      "camelName": "quantity",
+      "pascalName": "Quantity",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"slotId\"]",
+  "indexParamsColumns": "userId, districtId",
+  "indexTypeMethodName": "SlotId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TDistrictInventoryRecordBySlotId",
+  "indexColumns": [
+    {
+      "name": "slot_id",
+      "camelName": "slotId",
+      "pascalName": "SlotId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_district_inventory",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/inventory/rpc/get-district-inventory/[districtId]/route.ts",
+  "apiPathParams": "/api/inventory/rpc/get-district-inventory/${params.districtId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:23.120Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/inventory/districtInventory.ts",
+    "app/api/inventory/rpc/get-district-inventory/[districtId]/route.ts",
+    "methods/hooks/inventory/core/useFetchDistrictInventory.ts",
+    "methods/server-fetchers/inventory/core/getDistrictInventoryServer.ts",
+    "methods/services/inventory/fetchDistrictInventoryService.ts",
+    "store/atoms/getMethodFetcher/districtInventoryAtom.ts",
+    ".vscode/useDistrictInventory.code-snippets",
+    "methods/hooks/inventory/core/useMutateDistrictInventory.ts",
+    "methods/hooks/inventory/core/useFetchDistrictInventory.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

@@ -1,0 +1,127 @@
+{
+  "promptAnswers": {
+    "schema": "buildings",
+    "table": "buildings",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "city_tile_x",
+      "city_tile_y"
+    ],
+    "paramsColumns": [
+      "city_id"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": false
+  },
+  "schema": "buildings",
+  "table": "buildings",
+  "tableCamelName": "buildings",
+  "tablePascalName": "Buildings",
+  "tableKebabName": "buildings",
+  "schemaTablePascalName": "BuildingsBuildings",
+  "methodTypeName": "TBuildingsBuildings",
+  "methodParamsTypeName": "TBuildingsBuildingsParams",
+  "methodParamsColumns": [
+    {
+      "name": "city_id",
+      "camelName": "cityId",
+      "tsType": "number"
+    }
+  ],
+  "methodName": "getBuildingsBuildings",
+  "methodNameByKey": "getBuildingsBuildingsByKey",
+  "methodRecords": "get_buildings",
+  "methodRecordsByKey": "get_buildings_by_key",
+  "sqlParamsPlaceholders": "$1",
+  "methodColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "city_id",
+      "camelName": "cityId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "city_tile_x",
+      "camelName": "cityTileX",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "CityTileX"
+    },
+    {
+      "name": "city_tile_y",
+      "camelName": "cityTileY",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "CityTileY"
+    },
+    {
+      "name": "building_type_id",
+      "camelName": "buildingTypeId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"cityTileX\", \"cityTileY\"]",
+  "indexParamsColumns": "cityId",
+  "indexTypeMethodName": "CityTileXCityTileY",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TBuildingsBuildingsRecordByCityTileXCityTileY",
+  "indexColumns": [
+    {
+      "name": "city_tile_x",
+      "camelName": "cityTileX",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "CityTileX"
+    },
+    {
+      "name": "city_tile_y",
+      "camelName": "cityTileY",
+      "tsType": "number",
+      "optional": "",
+      "pascalName": "CityTileY"
+    }
+  ],
+  "apiPath": "app/api/buildings/buildings/route.ts",
+  "apiPathParams": "/api/buildings/buildings",
+  "apiPathByKey": "app/api/buildings/buildings/[cityId]/route.ts",
+  "apiPathParamsByKey": "/api/buildings/buildings/${params.cityId}",
+  "generateMutation": true,
+  "mutationMergeOldData": false,
+  "fetcherName": "fetchBuildingsBuildings",
+  "fetcherNameByKey": "fetchBuildingsBuildingsByKey",
+  "selectedGenerators": [
+    "getTable"
+  ],
+  "filesCreated": [
+    "../db/postgresMainDatabase/schemas/buildings/buildings.ts",
+    "../app/api/buildings/buildings/route.ts",
+    "../app/api/buildings/buildings/[cityId]/route.ts",
+    "../methods/hooks/buildings/core/useFetchBuildingsBuildings.ts",
+    "../methods/hooks/buildings/core/useFetchBuildingsBuildingsByKey.ts",
+    "../methods/server-fetchers/buildings/core/getBuildingsBuildingsServer.ts",
+    "../methods/server-fetchers/buildings/core/getBuildingsBuildingsByKeyServer.ts",
+    "../methods/services/buildings/fetchBuildingsBuildingsService.ts",
+    "../methods/services/buildings/fetchBuildingsBuildingsByKeyService.ts",
+    "../store/atoms/getTable/buildingsAtom.ts",
+    "../.vscode/useBuildingsBuildings.code-snippets",
+    "../.vscode/useBuildingsBuildingsByKey.code-snippets",
+    "../methods/hooks/buildings/core/useMutateBuildingsBuildings.ts",
+    "../methods/hooks/buildings/core/useMutateBuildingsBuildingsByKey.ts",
+    "./answerHistory/getTable/buildings_buildings_answers.json",
+    "../methods/hooks/buildings/core/useFetchBuildingsBuildings.md",
+    "../methods/hooks/buildings/core/useFetchBuildingsBuildingsByKey.md"
+  ]
+}

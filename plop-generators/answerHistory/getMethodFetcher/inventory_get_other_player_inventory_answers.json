@@ -1,0 +1,140 @@
+{
+  "promptAnswers": {
+    "schema": "inventory",
+    "method": "get_other_player_inventory",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "slotId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "inventory",
+  "method": "get_other_player_inventory",
+  "entityCamelName": "otherPlayerInventory",
+  "entityPascalName": "OtherPlayerInventory",
+  "entityKebabName": "get-other-player-inventory",
+  "dbFunctionName": "getOtherPlayerInventory",
+  "methodTypeName": "TOtherPlayerInventory",
+  "methodParamsTypeName": "TOtherPlayerInventoryParams",
+  "clientMethodParamsTypeName": "TOtherPlayerInventoryClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_other_player_id",
+      "camelName": "otherPlayerId",
+      "tsType": "string",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_other_player_id",
+      "camelName": "otherPlayerId",
+      "tsType": "string",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "slot_id",
+      "camelName": "slotId",
+      "pascalName": "SlotId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "container_id",
+      "camelName": "containerId",
+      "pascalName": "ContainerId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "inventory_container_type_id",
+      "camelName": "inventoryContainerTypeId",
+      "pascalName": "InventoryContainerTypeId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "inventory_slot_type_id",
+      "camelName": "inventorySlotTypeId",
+      "pascalName": "InventorySlotTypeId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "item_id",
+      "camelName": "itemId",
+      "pascalName": "ItemId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "quantity",
+      "camelName": "quantity",
+      "pascalName": "Quantity",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"slotId\"]",
+  "indexParamsColumns": "userId, playerId, otherPlayerId",
+  "indexTypeMethodName": "SlotId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TOtherPlayerInventoryRecordBySlotId",
+  "indexColumns": [
+    {
+      "name": "slot_id",
+      "camelName": "slotId",
+      "pascalName": "SlotId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_other_player_inventory",
+  "sqlParamsPlaceholders": "$1, $2, $3",
+  "apiPath": "app/api/inventory/rpc/get-other-player-inventory/[playerId]/[otherPlayerId]/route.ts",
+  "apiPathParams": "/api/inventory/rpc/get-other-player-inventory/${params.playerId}/${params.otherPlayerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:23.420Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/inventory/otherPlayerInventory.ts",
+    "app/api/inventory/rpc/get-other-player-inventory/[playerId]/[otherPlayerId]/route.ts",
+    "methods/hooks/inventory/core/useFetchOtherPlayerInventory.ts",
+    "methods/server-fetchers/inventory/core/getOtherPlayerInventoryServer.ts",
+    "methods/services/inventory/fetchOtherPlayerInventoryService.ts",
+    "store/atoms/getMethodFetcher/otherPlayerInventoryAtom.ts",
+    ".vscode/useOtherPlayerInventory.code-snippets",
+    "methods/hooks/inventory/core/useMutateOtherPlayerInventory.ts",
+    "methods/hooks/inventory/core/useFetchOtherPlayerInventory.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

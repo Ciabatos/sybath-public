@@ -1,0 +1,114 @@
+{
+  "promptAnswers": {
+    "schema": "attributes",
+    "method": "get_all_skills",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "id"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "attributes",
+  "method": "get_all_skills",
+  "entityCamelName": "allSkills",
+  "entityPascalName": "AllSkills",
+  "entityKebabName": "get-all-skills",
+  "dbFunctionName": "getAllSkills",
+  "methodTypeName": "TAllSkills",
+  "methodParamsTypeName": "TAllSkillsParams",
+  "clientMethodParamsTypeName": "TAllSkillsClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "pascalName": "Id",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "description",
+      "camelName": "description",
+      "pascalName": "Description",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image",
+      "camelName": "image",
+      "pascalName": "Image",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "value",
+      "camelName": "value",
+      "pascalName": "Value",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"id\"]",
+  "indexParamsColumns": "userId, playerId",
+  "indexTypeMethodName": "Id",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TAllSkillsRecordById",
+  "indexColumns": [
+    {
+      "name": "id",
+      "camelName": "id",
+      "pascalName": "Id",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_all_skills",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/attributes/rpc/get-all-skills/[playerId]/route.ts",
+  "apiPathParams": "/api/attributes/rpc/get-all-skills/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:22.041Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/attributes/allSkills.ts",
+    "app/api/attributes/rpc/get-all-skills/[playerId]/route.ts",
+    "methods/hooks/attributes/core/useFetchAllSkills.ts",
+    "methods/server-fetchers/attributes/core/getAllSkillsServer.ts",
+    "methods/services/attributes/fetchAllSkillsService.ts",
+    "store/atoms/getMethodFetcher/allSkillsAtom.ts",
+    ".vscode/useAllSkills.code-snippets",
+    "methods/hooks/attributes/core/useMutateAllSkills.ts",
+    "methods/hooks/attributes/core/useFetchAllSkills.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

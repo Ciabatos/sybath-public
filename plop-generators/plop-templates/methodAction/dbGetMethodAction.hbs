@@ -1,0 +1,56 @@
+// GENERATED CODE - DO NOT EDIT MANUALLY - dbGetMethodAction.hbs
+
+"use server"
+import { query } from "@/db/postgresMainDatabase/postgresMainDatabase"
+import { snakeToCamelKeys } from "@/methods/functions/util/snakeToCamel"
+
+{{#each compositeDefinitions}}
+export type {{typeName}} = {
+{{#each fields}}
+  {{camelName}}: {{tsType}}
+{{/each}}
+}
+{{/each}}
+
+{{#if methodParamsColumns}}
+export type {{methodParamsTypeName}} = {
+{{#each methodParamsColumns}}
+  {{camelName}}: {{tsType}}
+{{/each}}
+}{{/if}}
+
+export type {{methodTypeName}} = {
+{{#each methodColumns}}
+  {{camelName}}{{optional}}: {{tsType}}
+{{/each}}
+}
+
+export async function {{entityCamelName}}({{#if methodParamsColumns}}params: {{methodParamsTypeName}}{{/if}}) {
+  try {
+    {{#if methodParamsColumns}}
+    const sqlParams = [
+{{#each methodParamsColumns}}
+      {{#if isJson}}
+      JSON.stringify(params.{{camelName}})
+      {{else}}
+      params.{{camelName}}
+      {{/if}}{{#unless @last}},{{/unless}}
+{{/each}}
+    ]
+    const sql = `SELECT * FROM {{schema}}.{{sqlFunctionName}}({{sqlParamsPlaceholders}});`
+    const result = await query(sql, sqlParams)
+    {{else}}
+    const sql = `SELECT * FROM {{schema}}.{{sqlFunctionName}}();`
+    const result = await query(sql){{/if}}
+
+    return snakeToCamelKeys(result.rows[0]) as {{methodTypeName}}
+  } catch (error) {
+    console.error("Error executing {{entityCamelName}}:", {
+      error,
+      params,
+      timestamp: new Date().toISOString(),
+    })
+    
+    throw new Error("Failed to execute {{entityCamelName}}")
+  }
+}

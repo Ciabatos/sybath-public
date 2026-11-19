@@ -1,0 +1,76 @@
+// GENERATED CODE - SHOULD BE EDITED MANUALLY TO END CONFIGURATION - serviceGetMethodAction.hbs
+"use server"
+
+import {
+  TDoMapTileExplorationParams,
+  doMapTileExploration,
+} from "@/db/postgresMainDatabase/schemas/world/doMapTileExploration"
+import { getPlayerAbilitiesServer } from "@/methods/server-fetchers/attributes/core/getPlayerAbilitiesServer"
+import { getPlayerMapServer } from "@/methods/server-fetchers/world/core/getPlayerMapServer"
+import { getPlayerPositionServer } from "@/methods/server-fetchers/world/core/getPlayerPositionServer"
+
+//MANUAL CODE - START
+
+export type TDoMapTileExplorationServiceParams = {
+  userId: string
+  playerId: number
+  mapId: number
+  targetTileX: number
+  targetTileY: number
+}
+
+//MANUAL CODE - END
+
+export async function doMapTileExplorationService(params: TDoMapTileExplorationServiceParams) {
+  try {
+    const userId = params.userId
+    const playerId = params.playerId
+
+    //MANUAL CODE - START
+    const mapId = (await getPlayerMapServer({ userId, playerId })).raw[0].mapId
+
+    const [playerAbilities, playerPosition] = await Promise.all([
+      getPlayerAbilitiesServer({ userId, playerId }),
+      getPlayerPositionServer({ userId, mapId, playerId }, { forceFresh: true }),
+    ])
+
+    if (!playerAbilities.byKey[2]?.value) {
+      return {
+        status: false,
+        message: "Player does not have exploration ability",
+      }
+    }
+
+    if (!playerPosition.byKey[`${params.targetTileX},${params.targetTileY}`]) {
+      return {
+        status: false,
+        message: "Player cannot move to destination tile, cannot explore",
+      }
+    }
+
+    //MANUAL CODE - END
+
+    const data: TDoMapTileExplorationParams = {
+      userId: userId,
+      playerId: playerId,
+      mapId: mapId,
+      x: params.targetTileX,
+      y: params.targetTileY,
+      explorationLevel: playerAbilities.byKey[2].value,
+    }
+
+    const result = await doMapTileExploration(data)
+    return result
+  } catch (error) {
+    console.error("Error doMapTileExplorationService :", {
+      error,
+      params,
+      timestamp: new Date().toISOString(),
+    })
+
+    return {
+      status: false,
+      message: "Unexpected error occurred. Please refresh the page.",
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "promptAnswers": {
+    "schema": "inventory",
+    "method": "get_building_inventory",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "slotId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "inventory",
+  "method": "get_building_inventory",
+  "entityCamelName": "buildingInventory",
+  "entityPascalName": "BuildingInventory",
+  "entityKebabName": "get-building-inventory",
+  "dbFunctionName": "getBuildingInventory",
+  "methodTypeName": "TBuildingInventory",
+  "methodParamsTypeName": "TBuildingInventoryParams",
+  "clientMethodParamsTypeName": "TBuildingInventoryClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_building_id",
+      "camelName": "buildingId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_building_id",
+      "camelName": "buildingId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "slot_id",
+      "camelName": "slotId",
+      "pascalName": "SlotId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "container_id",
+      "camelName": "containerId",
+      "pascalName": "ContainerId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "inventory_container_type_id",
+      "camelName": "inventoryContainerTypeId",
+      "pascalName": "InventoryContainerTypeId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "inventory_slot_type_id",
+      "camelName": "inventorySlotTypeId",
+      "pascalName": "InventorySlotTypeId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "item_id",
+      "camelName": "itemId",
+      "pascalName": "ItemId",
+      "tsType": "number",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "quantity",
+      "camelName": "quantity",
+      "pascalName": "Quantity",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"slotId\"]",
+  "indexParamsColumns": "userId, buildingId",
+  "indexTypeMethodName": "SlotId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TBuildingInventoryRecordBySlotId",
+  "indexColumns": [
+    {
+      "name": "slot_id",
+      "camelName": "slotId",
+      "pascalName": "SlotId",
+      "tsType": "number",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_building_inventory",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/inventory/rpc/get-building-inventory/[buildingId]/route.ts",
+  "apiPathParams": "/api/inventory/rpc/get-building-inventory/${params.buildingId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:23.023Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/inventory/buildingInventory.ts",
+    "app/api/inventory/rpc/get-building-inventory/[buildingId]/route.ts",
+    "methods/hooks/inventory/core/useFetchBuildingInventory.ts",
+    "methods/server-fetchers/inventory/core/getBuildingInventoryServer.ts",
+    "methods/services/inventory/fetchBuildingInventoryService.ts",
+    "store/atoms/getMethodFetcher/buildingInventoryAtom.ts",
+    ".vscode/useBuildingInventory.code-snippets",
+    "methods/hooks/inventory/core/useMutateBuildingInventory.ts",
+    "methods/hooks/inventory/core/useFetchBuildingInventory.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

@@ -1,0 +1,36 @@
+// GENERATED CODE - DO NOT EDIT MANUALLY - dbGetMethodAction.hbs
+
+"use server"
+import { query } from "@/db/postgresMainDatabase/postgresMainDatabase"
+import { snakeToCamelKeys } from "@/methods/functions/util/snakeToCamel"
+
+export type TDoSquadInviteParams = {
+  userId: string
+  playerId: number
+  invitedPlayerId: string
+  inviteType: number
+  squadRole: number
+}
+
+export type TDoSquadInvite = {
+  status: boolean
+  message: string
+}
+
+export async function doSquadInvite(params: TDoSquadInviteParams) {
+  try {
+    const sqlParams = [params.userId, params.playerId, params.invitedPlayerId, params.inviteType, params.squadRole]
+    const sql = `SELECT * FROM squad.do_squad_invite($1, $2, $3, $4, $5);`
+    const result = await query(sql, sqlParams)
+
+    return snakeToCamelKeys(result.rows[0]) as TDoSquadInvite
+  } catch (error) {
+    console.error("Error executing doSquadInvite:", {
+      error,
+      params,
+      timestamp: new Date().toISOString(),
+    })
+
+    throw new Error("Failed to execute doSquadInvite")
+  }
+}

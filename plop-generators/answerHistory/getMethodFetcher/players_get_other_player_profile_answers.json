@@ -1,0 +1,119 @@
+{
+  "promptAnswers": {
+    "schema": "players",
+    "method": "get_other_player_profile",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "name"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": false
+  },
+  "schema": "players",
+  "method": "get_other_player_profile",
+  "entityCamelName": "otherPlayerProfile",
+  "entityPascalName": "OtherPlayerProfile",
+  "entityKebabName": "get-other-player-profile",
+  "dbFunctionName": "getOtherPlayerProfile",
+  "methodTypeName": "TOtherPlayerProfile",
+  "methodParamsTypeName": "TOtherPlayerProfileParams",
+  "clientMethodParamsTypeName": "TOtherPlayerProfileClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_other_player_id",
+      "camelName": "otherPlayerId",
+      "tsType": "string",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    },
+    {
+      "name": "p_other_player_id",
+      "camelName": "otherPlayerId",
+      "tsType": "string",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "second_name",
+      "camelName": "secondName",
+      "pascalName": "SecondName",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "nickname",
+      "camelName": "nickname",
+      "pascalName": "Nickname",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image_portrait",
+      "camelName": "imagePortrait",
+      "pascalName": "ImagePortrait",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"name\"]",
+  "indexParamsColumns": "userId, playerId, otherPlayerId",
+  "indexTypeMethodName": "Name",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TOtherPlayerProfileRecordByName",
+  "indexColumns": [
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_other_player_profile",
+  "sqlParamsPlaceholders": "$1, $2, $3",
+  "apiPath": "app/api/players/rpc/get-other-player-profile/[playerId]/[otherPlayerId]/route.ts",
+  "apiPathParams": "/api/players/rpc/get-other-player-profile/${params.playerId}/${params.otherPlayerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": false,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:24.458Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/players/otherPlayerProfile.ts",
+    "app/api/players/rpc/get-other-player-profile/[playerId]/[otherPlayerId]/route.ts",
+    "methods/hooks/players/core/useFetchOtherPlayerProfile.ts",
+    "methods/server-fetchers/players/core/getOtherPlayerProfileServer.ts",
+    "methods/services/players/fetchOtherPlayerProfileService.ts",
+    "store/atoms/getMethodFetcher/otherPlayerProfileAtom.ts",
+    ".vscode/useOtherPlayerProfile.code-snippets",
+    "methods/hooks/players/core/useMutateOtherPlayerProfile.ts",
+    "methods/hooks/players/core/useFetchOtherPlayerProfile.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

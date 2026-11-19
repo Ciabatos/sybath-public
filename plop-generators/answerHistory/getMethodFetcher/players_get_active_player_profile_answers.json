@@ -1,0 +1,114 @@
+{
+  "promptAnswers": {
+    "schema": "players",
+    "method": "get_active_player_profile",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "name"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": false
+  },
+  "schema": "players",
+  "method": "get_active_player_profile",
+  "entityCamelName": "activePlayerProfile",
+  "entityPascalName": "ActivePlayerProfile",
+  "entityKebabName": "get-active-player-profile",
+  "dbFunctionName": "getActivePlayerProfile",
+  "methodTypeName": "TActivePlayerProfile",
+  "methodParamsTypeName": "TActivePlayerProfileParams",
+  "clientMethodParamsTypeName": "TActivePlayerProfileClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "second_name",
+      "camelName": "secondName",
+      "pascalName": "SecondName",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "nickname",
+      "camelName": "nickname",
+      "pascalName": "Nickname",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image_map",
+      "camelName": "imageMap",
+      "pascalName": "ImageMap",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image_portrait",
+      "camelName": "imagePortrait",
+      "pascalName": "ImagePortrait",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"name\"]",
+  "indexParamsColumns": "userId, playerId",
+  "indexTypeMethodName": "Name",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TActivePlayerProfileRecordByName",
+  "indexColumns": [
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_active_player_profile",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/players/rpc/get-active-player-profile/[playerId]/route.ts",
+  "apiPathParams": "/api/players/rpc/get-active-player-profile/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": false,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:24.163Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/players/activePlayerProfile.ts",
+    "app/api/players/rpc/get-active-player-profile/[playerId]/route.ts",
+    "methods/hooks/players/core/useFetchActivePlayerProfile.ts",
+    "methods/server-fetchers/players/core/getActivePlayerProfileServer.ts",
+    "methods/services/players/fetchActivePlayerProfileService.ts",
+    "store/atoms/getMethodFetcher/activePlayerProfileAtom.ts",
+    ".vscode/useActivePlayerProfile.code-snippets",
+    "methods/hooks/players/core/useMutateActivePlayerProfile.ts",
+    "methods/hooks/players/core/useFetchActivePlayerProfile.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

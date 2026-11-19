@@ -1,0 +1,121 @@
+{
+  "promptAnswers": {
+    "schema": "squad",
+    "method": "get_squad_players_profiles",
+    "usePrevious": false,
+    "selectedColumnsIndex": [
+      "otherPlayerId"
+    ],
+    "generateMutation": true,
+    "mutationMergeOldData": true
+  },
+  "schema": "squad",
+  "method": "get_squad_players_profiles",
+  "entityCamelName": "squadPlayersProfiles",
+  "entityPascalName": "SquadPlayersProfiles",
+  "entityKebabName": "get-squad-players-profiles",
+  "dbFunctionName": "getSquadPlayersProfiles",
+  "methodTypeName": "TSquadPlayersProfiles",
+  "methodParamsTypeName": "TSquadPlayersProfilesParams",
+  "clientMethodParamsTypeName": "TSquadPlayersProfilesClientParams",
+  "methodParamsColumns": [
+    {
+      "name": "p_user_id",
+      "camelName": "userId",
+      "tsType": "string",
+      "isJson": false
+    },
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "clientMethodParamsColumns": [
+    {
+      "name": "p_player_id",
+      "camelName": "playerId",
+      "tsType": "number",
+      "isJson": false
+    }
+  ],
+  "methodColumns": [
+    {
+      "name": "other_player_id",
+      "camelName": "otherPlayerId",
+      "pascalName": "OtherPlayerId",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "name",
+      "camelName": "name",
+      "pascalName": "Name",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "second_name",
+      "camelName": "secondName",
+      "pascalName": "SecondName",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "nickname",
+      "camelName": "nickname",
+      "pascalName": "Nickname",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image_map",
+      "camelName": "imageMap",
+      "pascalName": "ImageMap",
+      "tsType": "string",
+      "optional": ""
+    },
+    {
+      "name": "image_portrait",
+      "camelName": "imagePortrait",
+      "pascalName": "ImagePortrait",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "indexMethodParams": "[\"otherPlayerId\"]",
+  "indexParamsColumns": "userId, playerId",
+  "indexTypeMethodName": "OtherPlayerId",
+  "indexMethodName": "arrayToObjectKey",
+  "indexTypeName": "TSquadPlayersProfilesRecordByOtherPlayerId",
+  "indexColumns": [
+    {
+      "name": "other_player_id",
+      "camelName": "otherPlayerId",
+      "pascalName": "OtherPlayerId",
+      "tsType": "string",
+      "optional": ""
+    }
+  ],
+  "sqlFunctionName": "get_squad_players_profiles",
+  "sqlParamsPlaceholders": "$1, $2",
+  "apiPath": "app/api/squad/rpc/get-squad-players-profiles/[playerId]/route.ts",
+  "apiPathParams": "/api/squad/rpc/get-squad-players-profiles/${params.playerId}",
+  "generateMutation": true,
+  "mutationMergeOldData": true,
+  "compositeDefinitions": [],
+  "dateCreated": "2026-09-22T22:24:24.832Z",
+  "filesCreated": [
+    "db/postgresMainDatabase/schemas/squad/squadPlayersProfiles.ts",
+    "app/api/squad/rpc/get-squad-players-profiles/[playerId]/route.ts",
+    "methods/hooks/squad/core/useFetchSquadPlayersProfiles.ts",
+    "methods/server-fetchers/squad/core/getSquadPlayersProfilesServer.ts",
+    "methods/services/squad/fetchSquadPlayersProfilesService.ts",
+    "store/atoms/getMethodFetcher/squadPlayersProfilesAtom.ts",
+    ".vscode/useSquadPlayersProfiles.code-snippets",
+    "methods/hooks/squad/core/useMutateSquadPlayersProfiles.ts",
+    "methods/hooks/squad/core/useFetchSquadPlayersProfiles.md"
+  ],
+  "generatorName": "getMethodFetcher"
+}

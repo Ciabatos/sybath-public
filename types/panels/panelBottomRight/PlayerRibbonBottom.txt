@@ -1,0 +1,1 @@
+[EPanelsBottomRight.PlayerRibbonBottom]: dynamic(() => import("@/components/players/PlayerRibbonBottom")

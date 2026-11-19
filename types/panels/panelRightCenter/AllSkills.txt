@@ -1,0 +1,1 @@
+[EPanelsRightCenter.AllSkills]: dynamic(() => import("@/components/attributes/AllSkills")

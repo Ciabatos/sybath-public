@@ -1,0 +1,50 @@
+import { TCitiesCitiesRecordByMapTileXMapTileY } from "@/db/postgresMainDatabase/schemas/cities/cities"
+import { TDistrictsDistrictsRecordByMapTileXMapTileY } from "@/db/postgresMainDatabase/schemas/districts/districts"
+import { TDistrictsDistrictTypesRecordById } from "@/db/postgresMainDatabase/schemas/districts/districtTypes"
+import { TWorldLandscapeTypesRecordById } from "@/db/postgresMainDatabase/schemas/world/landscapeTypes"
+import { TWorldMapTilesRecordByXY } from "@/db/postgresMainDatabase/schemas/world/mapTiles"
+import { TWorldTerrainTypesRecordById } from "@/db/postgresMainDatabase/schemas/world/terrainTypes"
+import { calculateTileMoveCost } from "@/methods/functions/map/calculateTileMoveCost"
+import { TPlayerMovement, TPlayerMovementRecordByXY } from "@/methods/functions/map/pathFromPointToPoint"
+
+type TPathFromPointToPointParams = {
+  path: TPlayerMovementRecordByXY
+  mapTiles: TWorldMapTilesRecordByXY
+  terrainTypes: TWorldTerrainTypesRecordById
+  landscapeTypes: TWorldLandscapeTypesRecordById
+  cities: TCitiesCitiesRecordByMapTileXMapTileY
+  districts: TDistrictsDistrictsRecordByMapTileXMapTileY
+  districtTypes: TDistrictsDistrictTypesRecordById
+}
+
+export function recalculatePathMoveCosts(params: TPathFromPointToPointParams): TPlayerMovement[] {
+  let totalMoveCost = 0
+  const pathArray = Object.values(params.path)
+  const result: TPlayerMovement[] = []
+
+  let blocked = false
+
+  for (const step of pathArray) {
+    let moveCost = calculateTileMoveCost(step.x, step.y, params)
+
+    if (blocked) {
+      moveCost = 99999999999
+    } else if (moveCost === 0) {
+      blocked = true
+      moveCost = 99999999999
+    }
+
+    result.push({
+      mapId: step.mapId,
+      order: step.order,
+      x: step.x,
+      y: step.y,
+      moveCost,
+      totalMoveCost,
+    })
+
+    totalMoveCost += moveCost
+  }
+
+  return result
+}
